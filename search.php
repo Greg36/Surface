@@ -1,11 +1,7 @@
 <?php
 /**
  * The template for displaying search results pages.
-<<<<<<< HEAD
- * to moj jest test
-=======
- *
->>>>>>> parent of ac29a51... test
+ * to moj jest test 5
  * @package _s
  */
 
