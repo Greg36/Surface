@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying search results pages.
- * to moj jest test
+ * to moj jest test 2
  * @package _s
  */
 
