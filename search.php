@@ -1,11 +1,7 @@
 <?php
 /**
  * The template for displaying search results pages.
-<<<<<<< HEAD
- * to moj jest test 2
-=======
- * to moj jest test 5
->>>>>>> test-branch
+ *
  * @package _s
  */
 
