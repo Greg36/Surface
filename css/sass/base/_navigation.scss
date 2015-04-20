@@ -91,6 +91,7 @@ a {
   display: block;
 }
 
+/* Switching from toggle menu to full display */
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;

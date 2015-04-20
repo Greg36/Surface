@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     'css/sass/**/*.scss',
                     'css/sass/*.scss'
                 ],
-                tasks: ['sass', 'concat', 'cssmin']
+                tasks: ['sass', 'autoprefixer', 'concat', 'cssmin']
             }
         },
 
@@ -39,10 +39,20 @@ module.exports = function(grunt) {
         },
 
         sass: {
+            options: {
+                sourceMap: true
+            },
             dist: {
                 files: {
                     'css/style.css' : 'css/sass/style.scss'
                 }
+            }
+        },
+
+        autoprefixer: {
+            single_file: {
+                src: 'css/style.css',
+                dest: 'css/style.css'
             }
         },
 
@@ -112,7 +122,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( 'grunt-contrib-concat' );
     grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-    grunt.loadNpmTasks( 'grunt-contrib-sass' );
+    grunt.loadNpmTasks( 'grunt-sass' );
+    grunt.loadNpmTasks( 'grunt-autoprefixer' );
     grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-potomo' );
@@ -122,5 +133,5 @@ module.exports = function(grunt) {
     grunt.registerTask( 'default', ['watch']);
     grunt.registerTask( 'makethepot', ['makepot'] );
 
-    grunt.registerTask('build', ['uglify', 'sass', 'concat', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
+    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'concat', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
 };
