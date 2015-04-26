@@ -1,2 +1,7 @@
 node_modules
 .sass-cache
+css/style.css.map
+css/style.min.css
+css/style.css
+js/app.min.js
+js/app.min.map
