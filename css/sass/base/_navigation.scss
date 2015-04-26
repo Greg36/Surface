@@ -47,7 +47,8 @@ a {
       }
 
       li {
-        &:hover > ul {
+				&:hover > ul,
+				&.focus > ul {
           left: 100%;
         }
       }
@@ -56,14 +57,17 @@ a {
         width: 200px;
       }
 
-      :hover > a {
+			:hover > a,
+			.focus > a {
       }
 
-      a:hover {
+			a:hover,
+			a.focus {
       }
     }
 
-    li:hover > ul {
+		li:hover > ul,
+		li.focus > ul {
       left: auto;
     }
   }
@@ -71,7 +75,8 @@ a {
     float: left;
     position: relative;
 
-    &:hover > a {
+		&:hover > a,
+		&.focus > a {
     }
   }
   a {
