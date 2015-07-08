@@ -10,7 +10,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: [
-                    'Gruntfile.js',
+                    'js/vendor/**/*.js',
                     'js/source/**/*.js'
                 ],
                 tasks: ['uglify']
@@ -20,7 +20,19 @@ module.exports = function(grunt) {
                     'css/sass/**/*.scss',
                     'css/sass/*.scss'
                 ],
-                tasks: ['sass', 'autoprefixer', 'concat', 'cssmin']
+                tasks: ['sass', 'autoprefixer', 'cssmin']
+            }
+        },
+
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src : 'css/style.css'
+                },
+                options: {
+                    proxy: "_s.dev",
+                    watchTask: true
+                }
             }
         },
 
@@ -56,13 +68,6 @@ module.exports = function(grunt) {
             }
         },
 
-        concat: {
-            dist: {
-                files: {
-                    'css/style.css': ['css/vendor/*.css', 'css/style.css']
-                }
-            }
-        },
 
         cssmin: {
             dist: {
@@ -76,9 +81,9 @@ module.exports = function(grunt) {
             dynamic: {                         // Another target
                 files: [{
                     expand: true,                  // Enable dynamic expansion
-                    cwd: 'images/',                   // Src matches are relative to this path
+                    cwd: 'img/',                   // Src matches are relative to this path
                     src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-                    dest: 'images/'                  // Destination path prefix
+                    dest: 'img/'                  // Destination path prefix
                 }]
             }
         },
@@ -90,6 +95,7 @@ module.exports = function(grunt) {
                     potFilename: '_s.pot',
                     type: 'wp-theme',
                     exclude: [
+                        '.idea',
                         'node_modules',
                         '.sass-cache',
                         'js',
@@ -119,7 +125,6 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
-    grunt.loadNpmTasks( 'grunt-contrib-concat' );
     grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
     grunt.loadNpmTasks( 'grunt-sass' );
@@ -128,10 +133,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-potomo' );
     grunt.loadNpmTasks( 'grunt-newer' );
+    grunt.loadNpmTasks( 'grunt-browser-sync' );
 
     // register tasks
-    grunt.registerTask( 'default', ['watch']);
-    grunt.registerTask( 'makethepot', ['makepot'] );
+    grunt.registerTask( 'default', ['browserSync', 'watch']);
 
-    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'concat', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
+    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
 };
