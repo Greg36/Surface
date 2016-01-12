@@ -13,8 +13,9 @@
 
 // Clearfix
 @mixin clearfix() {
-  content: "";
-  display: table;
+	content: "";
+	display: table;
+	table-layout: fixed;
 }
 
 // Clear after (not all clearfix need this also)
