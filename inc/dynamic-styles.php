@@ -24,4 +24,4 @@ function _s_dynamic_styles() {
 	echo '<style type="text/css">' . $final_css . '</style>';
 }
 
-add_action( 'wp_head', 'gently_dynamic_styles', 99 );
+add_action( 'wp_head', '_s_dynamic_styles', 99 );
