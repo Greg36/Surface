@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
         watch: {
             options: {
-                livereload: true
+                spawn: false
             },
             js: {
                 files: [
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                     src : 'css/style.css'
                 },
                 options: {
-                    proxy: "_s.dev",
+                    proxy: "localhost/_s",
                     watchTask: true
                 }
             }
