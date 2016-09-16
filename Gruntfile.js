@@ -101,7 +101,8 @@ module.exports = function(grunt) {
                         'js',
                         'css',
                         'fonts',
-                        'images'
+                        'images',
+                        'tests'
                     ]
                 }
             }
