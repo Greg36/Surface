@@ -1,10 +1,13 @@
 {
   "name": "underscores",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "Gruntfile.js",
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-config-inpsyde": "^1.4.0",
+    "eslint-plugin-import": "^2.2.0",
     "grunt": "~1.0.1",
     "grunt-autoprefixer": "^3.0.0",
     "grunt-browser-sync": "^2.1.3",

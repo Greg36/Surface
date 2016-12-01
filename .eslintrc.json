@@ -1,0 +1,21 @@
+{
+    "root": true,
+    "extends": [
+        "inpsyde"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "mocha": true
+    },
+    "rules": {
+      "linebreak-style": ["error", "windows"],
+      "one-var": [ 2, "always" ],
+      "space-in-parens": [1, "always"],
+      "computed-property-spacing": 0,
+      "space-before-function-paren": 0
+    }
+}
