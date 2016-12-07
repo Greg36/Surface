@@ -4,5 +4,5 @@ node_modules
 css/style.css.map
 css/style.min.css
 css/style.css
-js/app.min.js
-js/app.min.map
+js/app.js
+js/app.js.map
