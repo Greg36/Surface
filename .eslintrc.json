@@ -16,6 +16,7 @@
       "one-var": [ 2, "always" ],
       "space-in-parens": [1, "always"],
       "computed-property-spacing": 0,
-      "space-before-function-paren": 0
+      "space-before-function-paren": 0,
+      "yoda": 0
     }
 }
