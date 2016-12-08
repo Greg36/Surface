@@ -1,11 +1,11 @@
 'use strict'; // eslint-disable-line
 
-const path = require('path');
-const argv = require('minimist')(process.argv.slice(2));
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const mergeWith = require('lodash/mergeWith');
+const path = require( 'path' ),
+	argv = require( 'minimist' )( process.argv.slice( 2 ) ),
+	webpack = require( 'webpack' ),
+	autoprefixer = require( 'autoprefixer' ),
+	ExtractTextPlugin = require( 'extract-text-webpack-plugin' ),
+	mergeWith = require( 'lodash/mergeWith' );
 
 const isProduction = !!((argv.env && argv.env.production) || argv.p);
 
@@ -15,29 +15,28 @@ const jsLoader = {
 	use: [ 'babel' ],
 };
 
-let mergeWithConcat = function () {
-	const args = [].slice.call(arguments);
-	args.push((a, b) => {
-		if (Array.isArray(a) && Array.isArray(b)) {
-			return a.concat(b);
+const mergeWithConcat = function () {
+	const args = [].slice.call( arguments );
+	args.push( ( a, b ) => {
+		if ( Array.isArray( a ) && Array.isArray( b ) ) {
+			return a.concat( b );
 		}
 		return undefined;
 	});
 	return mergeWith.apply(this, args);
 };
 
-
 // Add Hot Module Replacement only on watcher script
-if (!!argv.watch) {
-	jsLoader.use.unshift('monkey-hot?sourceType=module');
+if ( !!argv.watch ) {
+	jsLoader.use.unshift( 'monkey-hot?sourceType=module' );
 }
 
 let webpackConfig = {
 	entry: [
-		path.join(__dirname, 'js/main.js'),
-		path.join(__dirname, 'css/sass/style.scss')
+		path.join( __dirname, 'js/main.js' ),
+		path.join( __dirname, 'css/sass/style.scss' )
 	],
-	devtool: (!isProduction ? '#source-map' : undefined),
+	devtool: ( ! isProduction ? '#source-map' : undefined ),
 	output: {
 		path: __dirname,
 		publicPath: '/wp-content/themes/underscores/',
@@ -70,26 +69,26 @@ let webpackConfig = {
 		moduleExtensions: ['-loader'],
 	},
 	plugins: [
-		new webpack.LoaderOptionsPlugin({
+		new webpack.LoaderOptionsPlugin( {
+			stats: { colors: true },
 			options: {
-
 				postcss: [
 					autoprefixer({ browsers: ['last 2 versions', 'android 4', 'opera 12'] }),
 				],
 				context: '/'
 			}
-		}),
-		new ExtractTextPlugin({
+		} ),
+		new ExtractTextPlugin( {
 			filename: `css/style.css`,
 			allChunks: true,
 			disable: !!argv.watch,
-		}),
+		} ),
 	]
 };
 
-if (!!argv.watch) {
-	webpackConfig.entry.unshift('webpack-hot-middleware/client?timeout=20000&reload=false');
-	webpackConfig = mergeWithConcat(webpackConfig, require('./webpack.config.watch'));
+if ( !!argv.watch ) {
+	webpackConfig.entry.unshift( 'webpack-hot-middleware/client?timeout=20000&reload=false' );
+	webpackConfig = mergeWithConcat( webpackConfig, require( './webpack.config.watch' ) );
 }
 
 module.exports = webpackConfig;

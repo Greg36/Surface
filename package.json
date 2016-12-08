@@ -31,7 +31,6 @@
     "build:production": "webpack --progress -p --config webpack.config.js",
     "build:profile": "webpack --progress --profile --json --config webpack.config.js",
     "start": "webpack --hide-modules --watch --config webpack.config.js",
-    "clean": "rimraf dist",
     "lint": "eslint js/source js/admin js/main.js",
     "test": "npm run lint"
   },
