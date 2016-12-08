@@ -48,14 +48,14 @@ export default class MobileNavigation {
 			subMenus = this.menu.getElementsByTagName( 'ul' );
 
 		// Set menu items with submenus to aria-haspopup="true".
-		for ( let i = 0, len = this.subMenus.length; i < len; i++ ) {
-			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+		for ( const subMenu of subMenus ) {
+			subMenu.parentNode.setAttribute( 'aria-haspopup', 'true' );
 		}
 
 		// Each time a menu link is focused or blurred, toggle focus.
-		for ( let i = 0, len = links.length; i < len; i++ ) {
-			links[i].addEventListener( 'focus', this.constructor.toggleFocus, true );
-			links[i].addEventListener( 'blur', this.constructor.toggleFocus, true );
+		for ( const link of links ) {
+			link.addEventListener( 'focus', this.toggleFocus, true );
+			link.addEventListener( 'blur', this.toggleFocus, true );
 		}
 	}
 
@@ -92,7 +92,7 @@ export default class MobileNavigation {
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	static toggleFocus() {
+	toggleFocus() {
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while ( -1 === this.className.indexOf( 'nav-menu' ) ) {
 			// On li elements toggle the class .focus.
