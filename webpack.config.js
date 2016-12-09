@@ -39,18 +39,18 @@ let webpackConfig = {
 	devtool: ( ! isProduction ? '#source-map' : undefined ),
 	output: {
 		path: __dirname,
-		publicPath: '/wp-content/themes/underscores/',
+		publicPath: '/wp-content/themes/'+ '_s' + '/',
 		filename: 'js/app.js',
 	},
 	module: {
 		rules: [
 			jsLoader,
-			// {
-			// 	enforce: 'pre',
-			// 	test: /\.js?$/,
-			// 	include: path.join(__dirname, 'js/source'),
-			// 	loader: 'eslint',
-			// },
+			{
+				enforce: 'pre',
+				test: /\.js?$/,
+				include: path.join(__dirname, 'js/source'),
+				loader: 'eslint',
+			},
 			{
 				test: /\.scss$/,
 				include: path.join(__dirname, 'css/sass'),

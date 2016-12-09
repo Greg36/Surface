@@ -11,7 +11,7 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new BrowserSyncPlugin({
 			target: 'http://localhost/underscores',
-			publicPath: '/wp-content/themes/underscores/',
+			publicPath: '/wp-content/themes/' + '_s' + '/',
 			proxyUrl: 'http://localhost:3000',
 			watch: [
 				'**/*.php',
