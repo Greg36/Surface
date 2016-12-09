@@ -4,8 +4,11 @@
 import Navigation from './source/navigation.js';
 import skipLinkFocus from './source/skip-link-focus-fix.js';
 
-skipLinkFocus();
+document.addEventListener( 'DOMContentLoaded', () => {
+	const navigation = new Navigation();
 
-const navigation = new Navigation();
-navigation.setupNavigation();
-navigation.enableTouchFocus();
+	skipLinkFocus();
+	navigation.setupNavigation();
+	navigation.enableTouchFocus();
+} );
+
