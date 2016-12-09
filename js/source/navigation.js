@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 
-export default class MobileNavigation {
+export default class Navigation {
 	constructor() {
 		this.container = document.getElementById( 'site-navigation' );
 		this.button = this.container.getElementsByTagName( 'button' )[0];
@@ -30,7 +30,7 @@ export default class MobileNavigation {
 			this.menu.className += ' nav-menu';
 		}
 
-		// Toggle Aria label
+		// Toggle mobile navigation
 		this.button.onclick = () => {
 			if ( -1 !== this.container.className.indexOf( 'toggled' ) ) {
 				this.container.className = this.container.className.replace( ' toggled', '' );
@@ -43,7 +43,14 @@ export default class MobileNavigation {
 			}
 		};
 
-		// Get all the link elements within the menu.
+		this.navAccessibilitySupport();
+	}
+
+	/**
+	 * Allow keyboard users to use multi-level navigation
+	 */
+	navAccessibilitySupport() {
+	// Get all the link elements within the menu.
 		const links = this.menu.getElementsByTagName( 'a' ),
 			subMenus = this.menu.getElementsByTagName( 'ul' );
 
@@ -61,7 +68,6 @@ export default class MobileNavigation {
 
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
-	 * @todo: Refactor this code and make sure its working right.
 	 */
 	enableTouchFocus() {
 		const parentLink = this.container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
@@ -93,16 +99,20 @@ export default class MobileNavigation {
 	 * Sets or removes .focus class on an element.
 	 */
 	toggleFocus() {
+		let self = this;
+
 		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === this.className.indexOf( 'nav-menu' ) ) {
+		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
 			// On li elements toggle the class .focus.
-			if ( 'li' === this.tagName.toLowerCase() ) {
-				if ( -1 !== this.className.indexOf( 'focus' ) ) {
-					this.className = this.className.replace( ' focus', '' );
+			if ( 'li' === self.tagName.toLowerCase() ) {
+				if ( -1 !== self.className.indexOf( 'focus' ) ) {
+					self.className = self.className.replace( ' focus', '' );
 				} else {
-					this.className += ' focus';
+					self.className += ' focus';
 				}
 			}
+
+			self = self.parentElement;
 		}
 	}
 }
