@@ -1,3 +1,4 @@
-./js/app.js
-./js/app.min.js
+js/app.js
+js/app.min.js
+tests/js/*.js
 webpack.*
