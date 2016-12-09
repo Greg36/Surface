@@ -70,6 +70,8 @@ let webpackConfig = {
 	},
 	plugins: [
 		new webpack.LoaderOptionsPlugin( {
+			minimize: !!argv.p,
+			debug: !!argv.watch,
 			stats: { colors: true },
 			options: {
 				postcss: [
@@ -86,6 +88,13 @@ let webpackConfig = {
 	]
 };
 
+// Load only in production build
+if ( !!argv.p ) {
+	webpackConfig = mergeWithConcat(webpackConfig, require('./webpack.config.optimize'));
+	webpackConfig.plugins.push(new webpack.NoErrorsPlugin());
+}
+
+// Load only while watching
 if ( !!argv.watch ) {
 	webpackConfig.entry.unshift( 'webpack-hot-middleware/client?timeout=20000&reload=false' );
 	webpackConfig = mergeWithConcat( webpackConfig, require( './webpack.config.watch' ) );
