@@ -6,3 +6,4 @@ css/style.min.css
 css/style.css
 js/app.js
 js/app.js.map
+tests/js-coverage

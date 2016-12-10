@@ -15,6 +15,7 @@ module.exports = function( config ) {
 
 		// list of files / patterns to load in the browser
 		files: [
+			'js/source/**/*.js',
 			'js/main.js',
 			'tests/js/**/*.js'
 		],
@@ -26,14 +27,15 @@ module.exports = function( config ) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'js/main.js': ['webpack'],
+			'js/source/**/*.js': ['webpack','coverage'],
+			'js/main.js': ['webpack', 'coverage'],
 			'tests/js/**/*.js': ['webpack']
 		},
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['progress', 'coverage'],
 
 		// web server port
 		port: 9876,
@@ -67,6 +69,12 @@ module.exports = function( config ) {
 		// webpack-dev-middleware configuration
 		webpackMiddleware: {
 			stats: 'errors-only'
+		},
+
+		coverageReporter: {
+			type: 'html',
+			dir: 'tests',
+			subdir: 'js-coverage'
 		}
 	} );
 };
