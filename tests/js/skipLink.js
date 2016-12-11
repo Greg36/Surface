@@ -1,16 +1,33 @@
 var expect = chai.expect;
 
 import skipLinkFocus from '../../js/source/skip-link-focus-fix.js';
-//@todo: Refactor this mess with Sinon
-describe( 'Skip Link', function () {
-	it( 'should change focus after url hash change', function () {
-		console.log(document.activeElement.tagName);
-		skipLinkFocus();
-		document.body.insertAdjacentHTML('afterend', '<div id="first-ele"></div><div id="second-ele">two</div>');
-		window.location = '#second-ele';
-		this.timeout(1000);
-		expect(document.activeElement.id).to.equal('second-ele');
-		console.log(document.activeElement.tagName);
 
+describe( 'Skip Link', function () {
+
+	before( function () {
+		document.body.insertAdjacentHTML('afterend', '<div id="first-ele"></div><div id="second-ele">two</div>');
+		skipLinkFocus();
 	} );
+
+	afterEach( function(){
+		window.location.hash = '';
+		document.activeElement.blur()
+	} );
+
+	it( 'should change focus after url hash change', function (done) {
+		window.location = '#second-ele';
+		setTimeout( function(){
+			expect(document.activeElement.id).to.equal('second-ele');
+			done();
+		}, 0 );
+	} );
+
+	it( 'should return early if invalid has url is passed', function (done) {
+		window.location = '#secon@-ele';
+		setTimeout( function(){
+			expect(document.activeElement.id).to.equal('');
+			done();
+		}, 0 );
+	} );
+
 } );

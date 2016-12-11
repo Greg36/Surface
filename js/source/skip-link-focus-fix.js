@@ -15,7 +15,7 @@ export default function skipLinkFocus() {
 			const id = location.hash.substring( 1 ),
 				element = document.getElementById( id );
 
-			if ( /^[A-z0-9_-]+$/.test( id ) ) {
+			if ( ! /^[A-z0-9_-]+$/.test( id ) ) {
 				return;
 			}
 
