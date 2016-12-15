@@ -46,8 +46,8 @@
     "build:production": "webpack --progress -p --config webpack.config.js",
     "build:profile": "webpack --progress --profile --json --config webpack.config.js",
     "start": "webpack --hide-modules --watch --config webpack.config.js",
-    "lint": "eslint js/source js/admin js/main.js",
-    "test": "npm run lint"
+    "lint": "eslint js/source js/main.js",
+    "test": "karma start"
   },
   "repository": {
     "type": "git",

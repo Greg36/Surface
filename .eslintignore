@@ -2,3 +2,4 @@ js/app.js
 js/app.min.js
 tests/js/*.js
 webpack.*
+karma.conf.js
