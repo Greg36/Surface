@@ -1,0 +1,39 @@
+{
+  "id": "prod_test",
+  "viewports": [
+    {
+      "name": "small",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "name": "medium",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "name": "large",
+      "width": 1026,
+      "height": 768
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Header",
+      "url": "http://localhost/underscores",
+      "selectors": [
+        "#masthead"
+      ],
+      "delay": 500
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "tmp/backstop_data/bitmaps_reference",
+    "bitmaps_test": "tmp/backstop_data/bitmaps_test",
+    "casper_scripts": "tmp/backstop_data/casper_scripts",
+    "html_report": "tmp/backstop_data/html_report",
+    "ci_report": "tmp/backstop_data/ci_report"
+  },
+  "engine": "phantomjs",
+  "report": ["browser"]
+}
