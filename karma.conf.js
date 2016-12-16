@@ -73,7 +73,7 @@ module.exports = function( config ) {
 
 		coverageReporter: {
 			type: 'html',
-			dir: 'tests',
+			dir: 'tmp',
 			subdir: 'js-coverage'
 		}
 	} );
