@@ -1,20 +1,35 @@
 <?php
+/**
+ * PHPUnit bootstrap file
+ *
+ * @package _s
+ */
 
-require_once dirname( dirname( __FILE__ ) ) . '/../../../includes/functions.php';
+/**
+ * Path to WordPress Core unit test suite directory in WP root
+ * @link https://core.trac.wordpress.org/browser/trunk/tests
+ */
+$_tests_dir = realpath( dirname(__FILE__) . '/../../../../../tests/phpunit' );
 
-function _manually_load_environment() {
 
-	// Add your theme …
-	switch_theme('_s');
+// Give access to tests_add_filter() function.
+require_once $_tests_dir . '/includes/functions.php';
 
-	// Update array with plugins to include ...
-	$plugins_to_active = array(
-//		'your-plugin/your-plugin.php'
-	);
+function _register_theme() {
 
-	update_option( 'active_plugins', $plugins_to_active );
+	$theme_dir = dirname( dirname( dirname( __FILE__ ) ) );
+	$current_theme = basename( $theme_dir );
 
+	register_theme_directory( dirname( $theme_dir ) );
+
+	add_filter( 'pre_option_template', function() use ( $current_theme ) {
+		return $current_theme;
+	});
+	add_filter( 'pre_option_stylesheet', function() use ( $current_theme ) {
+		return $current_theme;
+	});
 }
-tests_add_filter( 'muplugins_loaded', '_manually_load_environment' );
+tests_add_filter( 'muplugins_loaded', '_register_theme' );
 
-require dirname( dirname( __FILE__ ) ) . '/../../../includes/bootstrap.php';
+// Start up the WP testing environment.
+require $_tests_dir . '/includes/bootstrap.php';
