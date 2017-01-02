@@ -33,7 +33,7 @@ if ( !!argv.watch ) {
 
 let webpackConfig = {
 	entry: [
-		path.join( __dirname, 'js/main.js' ),
+		path.join( __dirname, 'js/source/main.js' ),
 		path.join( __dirname, 'css/sass/style.scss' )
 	],
 	devtool: ( ! isProduction ? '#source-map' : undefined ),

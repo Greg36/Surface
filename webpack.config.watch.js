@@ -17,7 +17,6 @@ module.exports = {
 				'**/*.php',
 				'js/admin/*.js',
 				'js/source/**/*.js',
-				'js/main.js',
 				'css/sass/**/*.scss',
 				'!node_modules'
 			],

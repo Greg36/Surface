@@ -48,7 +48,7 @@
     "build:production": "webpack --progress -p --config webpack.config.js",
     "build:profile": "webpack --progress --profile --json --config webpack.config.js",
     "start": "webpack --hide-modules --watch --config webpack.config.js",
-    "lint": "eslint js/source js/main.js",
+    "lint": "eslint js/source",
     "test": "karma start",
     "visual:ref": "backstop reference",
     "visual:test": "backstop test"
