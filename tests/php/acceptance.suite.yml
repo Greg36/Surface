@@ -1,12 +1,42 @@
 # Codeception Test Suite Configuration
-#
-# Suite for acceptance tests.
-# Perform tests in browser using the WebDriver or PhpBrowser.
-# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+# Suite for WordPress acceptance tests.
+# Perform tests using or simulating a browser.
+
 
 class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://localhost/myapp
         - \Helper\Acceptance
+        - WPDb
+        - WPWebDriver
+    config:
+        WPDb:
+            dsn: 'mysql:host=localhost;dbname=wp_underscores_test'
+            user: root
+            password:
+            dump: tmp/_data/dump.sql
+            populate: true
+            cleanup: true
+            url: 'http://localhost/underscores'
+            tablePrefix: wp_
+        WPWebDriver:
+            url: 'http://localhost/underscores'
+            browser: 'phantomjs'
+            port: 4444
+            restart: true
+            wait: 2
+            adminUsername: admin
+            adminPassword: 1234
+            adminUrl: /wp-admin
+env:
+    chrome:
+         modules:
+            config:
+                WPWebDriver:
+                    browser: 'chrome'
+    firefox:
+         modules:
+            config:
+                WPWebDriver:
+                    browser: 'firefox'
