@@ -1,6 +1,6 @@
 var expect = chai.expect;
 
-import skipLinkFocus from '../../js/source/skip-link-focus-fix.js';
+import skipLinkFocus from '../../assets/js/skip-link-focus-fix.js';
 
 describe( 'Skip Link', function () {
 

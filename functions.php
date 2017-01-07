@@ -22,7 +22,7 @@ function _s_setup() {
 	 * If you're building a theme based on _s, use a find and replace
 	 * to change '_s' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+	load_theme_textdomain( '_s', get_template_directory() . '/build/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -102,9 +102,9 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/css/style.css' );
+	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/build/css/style.css' );
 
-	wp_enqueue_script( '_s-app', get_template_directory_uri() . '/js/app.js', array(), '', true );
+	wp_enqueue_script( '_s-app', get_template_directory_uri() . '/build/js/app.js', array(), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

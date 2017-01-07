@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const BrowserSyncPlugin = require('./webpack.plugin.browsersync');
+const BrowserSyncPlugin = require('./webpack.plugin.browsersync.js');
 
 module.exports = {
 	output: { pathinfo: true },
@@ -15,9 +15,8 @@ module.exports = {
 			proxyUrl: 'http://localhost:3000',
 			watch: [
 				'**/*.php',
-				'js/admin/*.js',
-				'js/source/**/*.js',
-				'css/sass/**/*.scss',
+				'assets/js/**/*.js',
+				'assets/css/**/*.scss',
 				'!node_modules'
 			],
 			callback() {}

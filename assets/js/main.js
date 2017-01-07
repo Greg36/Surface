@@ -8,6 +8,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	const navigation = new Navigation();
 
 	skipLinkFocus();
+
 	navigation.setupNavigation();
 	navigation.enableTouchFocus();
 } );

@@ -28,11 +28,11 @@
     }
   ],
   "paths": {
-    "bitmaps_reference": "tmp/backstop_data/bitmaps_reference",
-    "bitmaps_test": "tmp/backstop_data/bitmaps_test",
-    "casper_scripts": "tmp/backstop_data/casper_scripts",
-    "html_report": "tmp/backstop_data/html_report",
-    "ci_report": "tmp/backstop_data/ci_report"
+    "bitmaps_reference": "../../tmp/backstop_data/bitmaps_reference",
+    "bitmaps_test": "../../tmp/backstop_data/bitmaps_test",
+    "casper_scripts": "../../tmp/backstop_data/casper_scripts",
+    "html_report": "../../tmp/backstop_data/html_report",
+    "ci_report": "../../tmp/backstop_data/ci_report"
   },
   "engine": "phantomjs",
   "report": ["browser"]

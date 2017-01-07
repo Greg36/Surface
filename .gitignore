@@ -1,9 +1,5 @@
 .idea
 node_modules
 .sass-cache
-css/style.css.map
-css/style.min.css
-css/style.css
-js/app.js
-js/app.js.map
+.build
 tmp

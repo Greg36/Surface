@@ -30,13 +30,13 @@
 # Utilities
 --------------------------------------------------------------*/
 
-@import "utilities/mixins";
+@import "utilities/_mixins";
 
-@import "utilities/variables";
+@import "utilities/_variables";
 
-@import "utilities/normalize";
+@import "utilities/_normalize";
 
-@import "utilities/clearings";
+@import "utilities/_clearings";
 
 /*--------------------------------------------------------------
 # Base
@@ -45,17 +45,17 @@
 /*---------------------------
 ## Elements
 ---------------------------*/
-@import "base/elements";
+@import "base/_elements";
 
 /*---------------------------
 ## Typography
 ---------------------------*/
-@import "base/typography";
+@import "base/_typography";
 
 /*---------------------------
 ## Forms
 ---------------------------*/
-@import "base/forms";
+@import "base/_forms";
 
 
 /*--------------------------------------------------------------
@@ -65,32 +65,32 @@
 /*---------------------------
 ## Accessibility
 ---------------------------*/
-@import "components/accessibility";
+@import "components/_accessibility";
 
 /*---------------------------
 ## Alignments
 ---------------------------*/
-@import "components/alignments";
+@import "components/_alignments";
 
 /*---------------------------
 ## Comments
 ---------------------------*/
-@import "components/comments";
+@import "components/_comments";
 
 /*---------------------------
 ## Media
 ---------------------------*/
-@import "components/media";
+@import "components/_media";
 
 /*---------------------------
 ## Navigation
 ---------------------------*/
-@import "components/navigation";
+@import "components/_navigation";
 
 /*---------------------------
 ## Widgets
 ---------------------------*/
-@import "components/widgets";
+@import "components/_widgets";
 
 
 /*--------------------------------------------------------------
@@ -100,29 +100,29 @@
 /*---------------------------
 ## Grid
 ---------------------------*/
-@import "layout/grid";
+@import "layout/_grid";
 
 /*---------------------------
 ## Header
 ---------------------------*/
-@import "layout/header";
+@import "layout/_header";
 
 /*---------------------------
 ## Main
 ---------------------------*/
-@import "layout/main";
+@import "layout/_main";
 
 /*---------------------------
 ## Content
 ---------------------------*/
-@import "layout/content";
+@import "layout/_content";
 
 /*---------------------------
 ## Sidebar
 ---------------------------*/
-@import "layout/sidebar";
+@import "layout/_sidebar";
 
 /*---------------------------
 ## Footer
 ---------------------------*/
-@import "layout/footer";
+@import "layout/_footer";

@@ -7,6 +7,8 @@ const path = require( 'path' ),
 	ExtractTextPlugin = require( 'extract-text-webpack-plugin' ),
 	mergeWith = require( 'lodash/mergeWith' );
 
+const baseDir = path.join( __dirname, '../..' );
+
 const isProduction = !!((argv.env && argv.env.production) || argv.p);
 
 const jsLoader = {
@@ -33,14 +35,14 @@ if ( !!argv.watch ) {
 
 let webpackConfig = {
 	entry: [
-		path.join( __dirname, 'js/source/main.js' ),
-		path.join( __dirname, 'css/sass/style.scss' )
+		path.join( baseDir, 'assets/js/main.js' ),
+		path.join( baseDir, 'assets/css/style.scss' )
 	],
 	devtool: ( ! isProduction ? '#source-map' : undefined ),
 	output: {
-		path: __dirname,
+		path: baseDir,
 		publicPath: '/wp-content/themes/'+ '_s' + '/',
-		filename: 'js/app.js',
+		filename: 'build/js/app.js',
 	},
 	module: {
 		rules: [
@@ -48,12 +50,12 @@ let webpackConfig = {
 			{
 				enforce: 'pre',
 				test: /\.js?$/,
-				include: path.join(__dirname, 'js/source'),
+				include: path.join(baseDir, 'assets/js'),
 				loader: 'eslint',
 			},
 			{
 				test: /\.scss$/,
-				include: path.join(__dirname, 'css/sass'),
+				include: path.join(baseDir, 'assets/css'),
 				loader: ExtractTextPlugin.extract({
 					fallbackLoader: 'style',
 					loader: [
@@ -68,6 +70,9 @@ let webpackConfig = {
 	resolveLoader: {
 		moduleExtensions: ['-loader'],
 	},
+	performance: {
+		hints: true
+	},
 	plugins: [
 		new webpack.LoaderOptionsPlugin( {
 			minimize: !!argv.p,
@@ -81,7 +86,7 @@ let webpackConfig = {
 			}
 		} ),
 		new ExtractTextPlugin( {
-			filename: `css/style.css`,
+			filename: `build/css/style.css`,
 			allChunks: true,
 			disable: !!argv.watch,
 		} ),
@@ -90,14 +95,15 @@ let webpackConfig = {
 
 // Load only in production build
 if ( !!argv.p ) {
-	webpackConfig = mergeWithConcat(webpackConfig, require('./webpack.config.optimize'));
+	webpackConfig = mergeWithConcat(webpackConfig, require('./webpack.config.optimize.js'));
 	webpackConfig.plugins.push(new webpack.NoErrorsPlugin());
 }
 
 // Load only while watching
 if ( !!argv.watch ) {
+	webpackConfig.performance.hints = false;
 	webpackConfig.entry.unshift( 'webpack-hot-middleware/client?timeout=20000&reload=false' );
-	webpackConfig = mergeWithConcat( webpackConfig, require( './webpack.config.watch' ) );
+	webpackConfig = mergeWithConcat( webpackConfig, require( './webpack.config.watch.js' ) );
 }
 
 module.exports = webpackConfig;

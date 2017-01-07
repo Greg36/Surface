@@ -44,14 +44,14 @@
     "webpack-hot-middleware": "^2.13.1"
   },
   "scripts": {
-    "build": "webpack --progress --config webpack.config.js",
-    "build:production": "webpack --progress -p --config webpack.config.js",
-    "build:profile": "webpack --progress --profile --json --config webpack.config.js",
-    "start": "webpack --hide-modules --watch --config webpack.config.js",
-    "lint": "eslint js/source",
-    "test": "karma start --auto-watch",
-    "visual:ref": "backstop reference",
-    "visual:test": "backstop test"
+    "build": "webpack --progress --config assets/build/webpack.config.js",
+    "build:production": "webpack --progress -p --config assets/build/webpack.config.js",
+    "build:profile": "webpack --progress --profile --json --config assets/build/webpack.config.js",
+    "start": "webpack --hide-modules --watch --config assets/build/webpack.config.js",
+    "lint": "eslint assets/js",
+    "test": "karma start assets/build/karma.conf.js --auto-watch",
+    "visual:ref": "backstop --configPath=assets/build/backstop.json reference",
+    "visual:test": "backstop --configPath=assets/build/backstop.json test"
   },
   "repository": {
     "type": "git",

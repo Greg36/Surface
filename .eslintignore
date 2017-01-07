@@ -1,5 +1,5 @@
-js/app.js
-js/app.min.js
+build/js/app.js
+build/js/app.min.js
 tests/js/*.js
-webpack.*
-karma.conf.js
+assets/build/webpack.*
+assets/build/karma.conf.js
