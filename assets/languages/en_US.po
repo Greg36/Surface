@@ -1,17 +1,17 @@
-# Copyright (C) 2016 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
+# <!=Copyright (C) 2017 Automattic
+# This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-05-21 15:34:57+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2017-01-07 22:08:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: node-wp-i18n 1.0.1\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -64,19 +64,19 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: functions.php:102
+#: functions.php:90
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:104
+#: functions.php:92
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:25
+#: header.php:24
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:45
+#: header.php:44
 msgid "Primary Menu"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:72 template-parts/content-page.php:33
+#: inc/template-tags.php:72 template-parts/content-page.php:34
 #. translators: %s: Name of current post
 msgid "Edit %s"
 msgstr ""

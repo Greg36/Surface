@@ -3,3 +3,4 @@ node_modules
 .sass-cache
 .build
 tmp
+assets/languages/en_US.mo
