@@ -1,6 +1,6 @@
 <?php
 /**
- * _s functions and definitions.
+ * _s functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -44,7 +44,7 @@ function _s_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', '_s' ),
+		'menu-1' => esc_html__( 'Primary', '_s' ),
 	) );
 
 	/*
@@ -64,6 +64,9 @@ function _s_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
 add_action( 'after_setup_theme', '_s_setup' );

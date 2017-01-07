@@ -51,13 +51,7 @@ export default class Navigation {
 	 */
 	navAccessibilitySupport() {
 	// Get all the link elements within the menu.
-		const links = this.menu.getElementsByTagName( 'a' ),
-			subMenus = this.menu.getElementsByTagName( 'ul' );
-
-		// Set menu items with submenus to aria-haspopup="true".
-		for ( const subMenu of subMenus ) {
-			subMenu.parentNode.setAttribute( 'aria-haspopup', 'true' );
-		}
+		const links = this.menu.getElementsByTagName( 'a' );
 
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( const link of links ) {
