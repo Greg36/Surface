@@ -1,0 +1,29 @@
+services:
+  - mysql:latest
+
+variables:
+  # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+  MYSQL_DATABASE: wordpress
+  MYSQL_ROOT_PASSWORD: secret
+
+image: tutum/wordpress
+
+dev:
+  stage: test
+  script:
+    - bash docker_install.sh > /dev/null
+    - cd ..
+    - cp -r $CI_PROJECT_NAME /var/www/html/wp-content/themes
+    - pwd
+    - cd /var/www/html/wp-content/themes
+    - cd $CI_PROJECT_NAME
+    - npm install --silent
+    - npm run build:production
+    - mkdir tmp/_data -p
+    - chmod -R 777 tmp
+    - mysqldump -u root -psecret --host=mysql wordpress > tmp/_data/dump.sql
+    - php /tmp/wpcept/wpcept g:helper Acceptance | php /tmp/wpcept/wpcept g:helper Functional | php /tmp/wpcept/wpcept g:helper Integration | php /tmp/wpcept/wpcept g:helper Unit
+    - php /tmp/wpcept/wpcept build
+    - php /tmp/wpcept/wpcept run functional
+    # - php /tmp/wpcept/wpcept run acceptance
+    - xvfb-run -a npm test
