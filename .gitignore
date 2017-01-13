@@ -1,6 +1,6 @@
 .idea
 node_modules
 .sass-cache
-.build
 tmp
+build
 assets/languages/en_US.mo
