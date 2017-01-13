@@ -10,9 +10,9 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new BrowserSyncPlugin({
-			target: 'http://localhost/underscores',
-			publicPath: '/wp-content/themes/' + '_s' + '/',
-			proxyUrl: 'http://localhost:3000',
+			target: '__url__',
+			publicPath: '/wp-content/themes/__s__/',
+			proxyUrl: '__url__:3000',
 			watch: [
 				'**/*.php',
 				'assets/js/**/*.js',

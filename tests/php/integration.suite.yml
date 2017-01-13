@@ -11,13 +11,13 @@ modules:
         - WPLoader
     config:
         WPLoader:
-            wpRootFolder: c:/wamp/www/underscores
+            wpRootFolder: /var/www/html
             dbName: wp_underscores_test
             dbHost: localhost
             dbUser: root
             dbPassword:
             tablePrefix: int_
-            domain: localhost/underscores
+            domain: localhost
             adminEmail: admin@wp.local
             title: WP Tests
             plugins: []

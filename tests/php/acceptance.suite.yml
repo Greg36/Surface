@@ -18,10 +18,10 @@ modules:
             dump: tmp/_data/dump.sql
             populate: true
             cleanup: true
-            url: 'http://localhost/underscores'
+            url: '__url__'
             tablePrefix: wp_
         WPWebDriver:
-            url: 'http://localhost/underscores'
+            url: '__url__'
             browser: 'phantomjs'
             port: 4444
             restart: true

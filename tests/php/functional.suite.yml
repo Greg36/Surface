@@ -19,10 +19,10 @@ modules:
             dump: tmp/_data/dump.sql
             populate: true
             cleanup: true
-            url: 'http://localhost/underscores'
+            url: '__url__'
             tablePrefix: wp_
         WordPress:
             depends: WPDb
-            wpRootFolder: c:/wamp/www/underscores
+            wpRootFolder: /var/www/html
             adminUsername: admin
             adminPassword: 1234

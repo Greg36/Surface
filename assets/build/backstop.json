@@ -20,7 +20,7 @@
   "scenarios": [
     {
       "label": "Header",
-      "url": "http://localhost/underscores",
+      "url": "__url__",
       "selectors": [
         "#masthead"
       ],

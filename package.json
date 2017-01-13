@@ -1,8 +1,8 @@
 {
-  "name": "underscores",
-  "version": "1.0.0",
+  "name": "__s__",
+  "version": "0.0.1",
   "description": "",
-  "main": "Gruntfile.js",
+  "main": "",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.5.2",
@@ -59,13 +59,6 @@
     "visual:ref": "backstop --configPath=assets/build/backstop.json reference",
     "visual:test": "backstop --configPath=assets/build/backstop.json test"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Greg36/underscores.git"
-  },
   "author": "",
-  "license": "GPL",
-  "bugs": {
-    "url": "https://github.com/Greg36/underscores/issues"
-  }
+  "license": "GPL"
 }
