@@ -25,7 +25,7 @@ Download `Underscores` from Github and rename the main folder to your brand new 
 | `Text Domain: _s` | `Text Domain: new-theme-name` | |
 | <code>&nbsp;_s</code> | <code>&nbsp;New-Theme-Name</code> | with space in front |
 | `_s-` | `new-theme-name-` | |
-| `__s__` | `new-theme-name` | |
+| `--s--` | `new-theme-name` | |
 | `__url__` | `http://mysite.com` | or just `http://localhost` |
 
 To use Codeception you also need to update its settings, check [wp-browser documentation](https://github.com/lucatume/wp-browser#modules) for more info.

@@ -41,7 +41,7 @@ let webpackConfig = {
 	devtool: ( ! isProduction ? '#source-map' : undefined ),
 	output: {
 		path: baseDir,
-		publicPath: '/wp-content/themes/__s__/',
+		publicPath: '/wp-content/themes/--s--/',
 		filename: 'build/js/app.js',
 	},
 	module: {

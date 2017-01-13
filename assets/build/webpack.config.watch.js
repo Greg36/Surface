@@ -11,7 +11,7 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new BrowserSyncPlugin({
 			target: '__url__',
-			publicPath: '/wp-content/themes/__s__/',
+			publicPath: '/wp-content/themes/--s--/',
 			proxyUrl: '__url__:3000',
 			watch: [
 				'**/*.php',
