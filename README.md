@@ -3,8 +3,6 @@ Underscores is WordPress starter theme based on [_s](https://github.com/Automatt
 
 Webpack config is based on [Sage](https://github.com/roots/sage) starter theme.
 
-**All features work but I am yet to test the 'find and replace' setup from _s so proceed with caution when customizing it for your porject.**
-
 ## Features
 * [Webpack](https://webpack.js.org/)  build tool
 * [BrowserSync](https://browsersync.io/) with live reload
@@ -17,12 +15,27 @@ Webpack config is based on [Sage](https://github.com/roots/sage) starter theme.
 * [BackstopJS](https://garris.github.io/BackstopJS/) visual regression tester
 * [ESLint](http://eslint.org/) JavaScript code linter
 
+## Setup
+Download `Underscores` from Github and rename the main folder to your brand new theme name. Then you will need to do find and replace on a couple of strings to change names for your theme name. Text editors like Sublime Text or any modern IDE can do that on all files in directory at once.
+
+| Search for: | Replace with: |  |
+|---|---|---|
+| `'_s'` | `'new-theme-name'` | with single quotes |
+| `_s_` | `new_theme_name_` | |
+| `Text Domain: _s` | `Text Domain: new-theme-name` | |
+| <code>&nbsp;_s</code> | <code>&nbsp;New-Theme-Name</code> | with space in front |
+| `_s-` | `new-theme-name-` | |
+| `__s__` | `new-theme-name` | |
+| `__url__` | `http://mysite.com` | or just `http://localhost` |
+
+To use Codeception you also need to update its settings, check [wp-browser documentation](https://github.com/lucatume/wp-browser#modules) for more info.
+
 ## Requirements
-To use Codeception it's need to be installed globally or via composer, along with wp-browser extension:
+To use Codeception along with wp-browser extension it's need to be installed globally or via composer:
+
 ```
-composer require codeception/codeception --dev
 composer require lucatume/wp-browser --dev
 ```
 
 ---
-For Karma and Codeception acceptance testing [Selenium standalone](http://docs.seleniumhq.org/docs/03_webdriver.jsp#running-standalone-selenium-server-for-use-with-remotedrivers) server with needed [browser drivers](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-s-drivers).
+For Karma and Codeception acceptance testing [Selenium standalone](http://docs.seleniumhq.org/docs/03_webdriver.jsp#running-standalone-selenium-server-for-use-with-remotedrivers) server is required with any needed [browser drivers](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-s-drivers).
