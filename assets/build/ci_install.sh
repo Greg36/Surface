@@ -7,11 +7,11 @@ set -xe
 
 # Install curl and wget
 apt-get update -yqq
-apt-get install curl -yqq > /dev/null 2>&1
+apt-get install curl -yqq
 apt-get install wget -yqq
 
 # Install php curl
-apt-get install php5-curl -yqqq
+apt-get install php5-curl -yqq > /dev/null 2>&1
 service apache2 restart
 
 # Install node
@@ -70,7 +70,7 @@ wget http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalo
 
 # Install Java8
 apt-get install software-properties-common -yqq
-add-apt-repository ppa:webupd8team/java -yqq
+add-apt-repository ppa:webupd8team/java -y
 apt-get update -yqq
 echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
