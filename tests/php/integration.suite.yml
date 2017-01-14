@@ -30,5 +30,5 @@ env:
                 WPLoader:
                     dbName: wordpress
                     dbHost: mysql
-                    password: secret
+                    dbPassword: secret
                     url: 'http://localhost'

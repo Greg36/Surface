@@ -18,7 +18,7 @@ dev:
     - cd /var/www/html/wp-content/themes
     - cd $CI_PROJECT_NAME
     - bash assets/build/wp_install.sh > /dev/null
-    - npm install --silent
+    - npm install --silent > /dev/null 2>&1
     - npm run build:production
     - xvfb-run java -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -jar ~/selenium/selenium-server-standalone-3.0.1.jar > /dev/null 2>&1 &
     - sleep 5
@@ -31,4 +31,7 @@ dev:
     - php /tmp/wpcept/wpcept run integration --env gitlab
     - php /tmp/wpcept/wpcept run unit --env gitlab
     - php /tmp/wpcept/wpcept run acceptance --env gitlab
-    - xvfb-run -a ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run > /dev/null 2>&1
+#    - xvfb-run -a ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run > /dev/null 2>&1
+    - Xvfb :99 > /dev/null 2>&1 &
+    - export DISPLAY=:99
+    - ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run
