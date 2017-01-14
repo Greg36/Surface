@@ -30,6 +30,16 @@ modules:
             adminPassword: 1234
             adminUrl: /wp-admin
 env:
+    gitlab:
+        modules:
+            config:
+                WPDb:
+                    dsn: 'mysql:host=mysql;dbname=wordpress;'
+                    password: secret
+                    url: 'http://localhost'
+                WPWebDriver:
+                    browser: 'firefox'
+                    url: 'http://localhost'
     chrome:
          modules:
             config:

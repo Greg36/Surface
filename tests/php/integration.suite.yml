@@ -23,3 +23,11 @@ modules:
             plugins: []
             activatePlugins: []
             bootstrapActions: []
+env:
+    gitlab:
+        modules:
+            config:
+                WPLoader:
+                    dbName: wordpress
+                    password: secret
+                    url: 'http://localhost'

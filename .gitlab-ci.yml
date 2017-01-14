@@ -11,19 +11,24 @@ image: tutum/wordpress
 dev:
   stage: test
   script:
-    - bash docker_install.sh > /dev/null
+    - bash assets/build/ci_install.sh > /dev/null
     - cd ..
     - cp -r $CI_PROJECT_NAME /var/www/html/wp-content/themes
-    - pwd
+    - cd /var/www/html
     - cd /var/www/html/wp-content/themes
     - cd $CI_PROJECT_NAME
+    - bash assets/build/wp_install.sh > /dev/null
     - npm install --silent
     - npm run build:production
+    - xvfb-run java -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -jar ~/selenium/selenium-server-standalone-3.0.1.jar & > /tmp/selenium_log.txt
+    - sleep 5
     - mkdir tmp/_data -p
     - chmod -R 777 tmp
     - mysqldump -u root -psecret --host=mysql wordpress > tmp/_data/dump.sql
     - php /tmp/wpcept/wpcept g:helper Acceptance | php /tmp/wpcept/wpcept g:helper Functional | php /tmp/wpcept/wpcept g:helper Integration | php /tmp/wpcept/wpcept g:helper Unit
     - php /tmp/wpcept/wpcept build
-    - php /tmp/wpcept/wpcept run functional
-    # - php /tmp/wpcept/wpcept run acceptance
-    - xvfb-run -a npm test
+    - php /tmp/wpcept/wpcept run functional --env gitlab
+    - php /tmp/wpcept/wpcept run integration --env gitlab
+    - php /tmp/wpcept/wpcept run unit --env gitlab
+    - php /tmp/wpcept/wpcept run acceptance --env gitlab
+    - xvfb-run -a ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run

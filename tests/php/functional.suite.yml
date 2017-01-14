@@ -26,3 +26,11 @@ modules:
             wpRootFolder: /var/www/html
             adminUsername: admin
             adminPassword: 1234
+env:
+    gitlab:
+        modules:
+            config:
+                WPDb:
+                    dsn: 'mysql:host=mysql;dbname=wordpress;'
+                    password: secret
+                    url: 'http://localhost'

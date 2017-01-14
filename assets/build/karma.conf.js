@@ -3,6 +3,11 @@
 
 var webpackConfig = require( './webpack.config.js' );
 
+var webdriverConfig = {
+	hostname: 'localhost',
+	port: 4444
+};
+
 module.exports = function( config ) {
 	config.set( {
 
@@ -37,7 +42,7 @@ module.exports = function( config ) {
 		reporters: ['progress', 'coverage'],
 
 		// web server port
-		port: 9876,
+		port: 4000,
 
 		// enable / disable colors in the output (reporters and logs)
 		colors: true,
@@ -49,6 +54,14 @@ module.exports = function( config ) {
 
 		// enable / disable watching file and executing tests whenever any file changes
 		autoWatch: false,
+
+		customLaunchers: {
+			'gecko': {
+				base: 'WebDriver',
+				config: webdriverConfig,
+				browserName: 'firefox'
+			}
+		},
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
