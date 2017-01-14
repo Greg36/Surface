@@ -32,6 +32,6 @@ dev:
     - php /tmp/wpcept/wpcept run unit --env gitlab
     - php /tmp/wpcept/wpcept run acceptance --env gitlab
 #    - xvfb-run -a ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run > /dev/null 2>&1
-    - Xvfb :99 > /dev/null 2>&1 &
-    - export DISPLAY=:99
+    - Xvfb :90 > /dev/null 2>&1 &
+    - export DISPLAY=:90
     - ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run
