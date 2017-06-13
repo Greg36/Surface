@@ -50,7 +50,7 @@
   "scripts": {
     "build": "webpack --progress --config assets/build/webpack.config.js",
     "build:production": "webpack --progress -p --config assets/build/webpack.config.js",
-    "build:profile": "webpack --progress --profile --json --config assets/build/webpack.config.js",
+    "build:profile": "webpack --progress --profile --config assets/build/webpack.config.js",
     "imageopt": "imagemin assets/images/**/* --out-dir=build/images",
     "svgopt": "svgo --folder=assets/images --output=build/images",
     "start": "webpack --hide-modules --watch --config assets/build/webpack.config.js",

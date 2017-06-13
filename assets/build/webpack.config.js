@@ -51,14 +51,14 @@ let webpackConfig = {
 				enforce: 'pre',
 				test: /\.js?$/,
 				include: path.join(baseDir, 'assets/js'),
-				loader: 'eslint',
+				use: 'eslint',
 			},
 			{
 				test: /\.scss$/,
 				include: path.join(baseDir, 'assets/css'),
-				loader: ExtractTextPlugin.extract({
-					fallbackLoader: 'style',
-					loader: [
+				use: ExtractTextPlugin.extract({
+					fallback: 'style',
+					use: [
 						'css?sourceMap',
 						'postcss',
 						'sass?sourceMap',
