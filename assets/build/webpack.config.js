@@ -98,12 +98,6 @@ let webpackConfig = {
 	]
 };
 
-// Load only in production build
-if ( !!argv.p ) {
-	webpackConfig = mergeWithConcat(webpackConfig, require('./webpack.config.optimize.js'));
-	webpackConfig.plugins.push(new webpack.NoErrorsPlugin());
-}
-
 // Load only while watching
 if ( !!argv.watch ) {
 	webpackConfig.performance.hints = false;
