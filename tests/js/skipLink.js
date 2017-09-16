@@ -2,6 +2,8 @@ var expect = chai.expect;
 
 import skipLinkFocus from '../../assets/js/skip-link-focus-fix.js';
 
+// @Todo: add working sample test.
+
 describe( 'Skip Link', function () {
 
 	before( function () {

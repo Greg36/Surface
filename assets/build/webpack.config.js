@@ -60,7 +60,12 @@ let webpackConfig = {
 					fallback: 'style',
 					use: [
 						'css?sourceMap',
-						'postcss',
+						{
+							loader: 'postcss', options: {
+								config: { path: __dirname, ctx: { isProduction: true } },
+								sourceMap: true,
+							},
+						},
 						'sass?sourceMap',
 					],
 				}),
@@ -71,7 +76,7 @@ let webpackConfig = {
 		moduleExtensions: ['-loader'],
 	},
 	performance: {
-		hints: true
+		hints: "warning"
 	},
 	plugins: [
 		new webpack.LoaderOptionsPlugin( {
