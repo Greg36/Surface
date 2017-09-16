@@ -8,7 +8,7 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new BrowserSyncPlugin({
 			target: '__url__',
 			publicPath: '/wp-content/themes/--s--/',
