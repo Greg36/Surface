@@ -12,7 +12,6 @@ module.exports = {
 		new BrowserSyncPlugin({
 			target: '__url__',
 			publicPath: '/wp-content/themes/--s--/',
-			proxyUrl: '__url__:3000',
 			watch: [
 				'**/*.php',
 				'assets/js/**/*.js',

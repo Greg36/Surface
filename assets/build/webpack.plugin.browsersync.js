@@ -27,8 +27,8 @@ module.exports = class {
 	}
 	start() {
 		const watcherConfig = {
-			host: url.parse( this.options.proxyUrl ).hostname,
-			port: url.parse( this.options.proxyUrl ).port,
+			host: this.options.target,
+			port: '3000',
 			injectFileTypes: ["scss","js"],
 			proxy: {
 				target: this.options.target,
