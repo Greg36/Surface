@@ -1,48 +1,24 @@
-'use strict'; // eslint-disable-line
+'use strict';
 
-const path = require( 'path' ),
-	argv = require( 'minimist' )( process.argv.slice( 2 ) ),
-	webpack = require( 'webpack' ),
-	autoprefixer = require( 'autoprefixer' ),
+const webpack = require( 'webpack' ),
+	merge = require('webpack-merge'),
+	CleanPlugin = require('clean-webpack-plugin'),
 	ExtractTextPlugin = require( 'extract-text-webpack-plugin' ),
-	mergeWith = require( 'lodash/mergeWith' );
+	CopyGlobsPlugin = require('copy-globs-webpack-plugin'),
+	FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
-const baseDir = path.join( __dirname, '../..' );
+const config = require( './config' );
 
-const isProduction = !!((argv.env && argv.env.production) || argv.p);
-
-const jsLoader = {
-	test: /\.js$/,
-	exclude: /node_modules/,
-	use: [ 'babel' ],
-};
-
-const mergeWithConcat = function () {
-	const args = [].slice.call( arguments );
-	args.push( ( a, b ) => {
-		if ( Array.isArray( a ) && Array.isArray( b ) ) {
-			return a.concat( b );
-		}
-		return undefined;
-	});
-	return mergeWith.apply(this, args);
-};
-
-// Add Hot Module Replacement only on watcher script
-if ( !!argv.watch ) {
-	jsLoader.use.unshift( 'monkey-hot?sourceType=module' );
-}
+const assetsFilenames = (config.enabled.cacheBusting) ? config.cacheBusting : '[name]';
 
 let webpackConfig = {
-	entry: [
-		path.join( baseDir, 'assets/js/main.js' ),
-		path.join( baseDir, 'assets/css/style.scss' )
-	],
-	devtool: ( ! isProduction ? '#source-map' : undefined ),
+	context: config.paths.assets,
+	entry: config.entry,
+	devtool: ( config.enabled.sourceMaps ? '#source-map' : undefined ),
 	output: {
-		path: baseDir,
-		publicPath: '/wp-content/themes/--s--/',
-		filename: 'build/js/app.js',
+		path: config.paths.dist,
+		publicPath: config.publicPath,
+		filename: `js/${assetsFilenames}.js`,
 	},
 	stats: {
 	   hash: false,
@@ -60,63 +36,147 @@ let webpackConfig = {
 	},
 	module: {
 		rules: [
-			jsLoader,
 			{
 				enforce: 'pre',
-				test: /\.js?$/,
-				include: path.join(baseDir, 'assets/js'),
+				test: /\.js$/,
+				include: config.paths.assets,
 				use: 'eslint',
 			},
 			{
-				test: /\.scss$/,
-				include: path.join(baseDir, 'assets/css'),
+				enforce: 'pre',
+				test: /\.(js|s?[ca]ss)$/,
+				include: config.paths.assets,
+				loader: 'import-glob',
+			},
+			{
+				test: /\.js$/,
+				exclude: [/(node_modules|bower_components)(?![/|\\](bootstrap|foundation-sites))/],
+				use: [
+					{ loader: 'cache' },
+					{ loader: 'buble', options: { objectAssign: 'Object.assign' } },
+				],
+			},
+			{
+				test: /\.css$/,
+				include: config.paths.assets,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style',
 					use: [
-						'css?sourceMap',
+						{ loader: 'cache' },
+						{ loader: 'css', options: { sourceMap: config.enabled.sourceMaps } },
 						{
 							loader: 'postcss', options: {
-								config: { path: __dirname, ctx: { isProduction: true } },
-								sourceMap: true,
-							},
+							config: { path: __dirname, ctx: config },
+							sourceMap: config.enabled.sourceMaps,
 						},
-						'sass?sourceMap',
+						},
 					],
 				}),
 			},
+			{
+				test: /\.scss$/,
+				include: config.paths.assets,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style',
+					use: [
+						{ loader: 'cache' },
+						{ loader: 'css', options: { sourceMap: config.enabled.sourceMaps } },
+						{
+							loader: 'postcss', options: {
+								config: { path: __dirname, ctx: config },
+								sourceMap: config.enabled.sourceMaps,
+							},
+						},
+						{ loader: 'resolve-url', options: { sourceMap: config.enabled.sourceMaps } },
+						{ loader: 'sass', options: { sourceMap: config.enabled.sourceMaps } },
+					],
+				}),
+			},
+			{
+				test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
+				include: config.paths.assets,
+				loader: 'url',
+				options: {
+					limit: 4096,
+					name: `[path]${assetsFilenames}.[ext]`,
+				},
+			}
 		]
+	},
+	resolve: {
+		modules: [
+			config.paths.assets,
+			'node_modules',
+			'bower_components',
+		],
+		enforceExtension: false,
 	},
 	resolveLoader: {
 		moduleExtensions: ['-loader'],
 	},
-	performance: {
-		hints: "warning"
-	},
 	plugins: [
-		new webpack.LoaderOptionsPlugin( {
-			minimize: !!argv.p,
-			debug: !!argv.watch,
-			stats: { colors: true },
-			options: {
-				postcss: [
-					autoprefixer({ browsers: ['last 2 versions', 'android 4', 'opera 12'] }),
-				],
-				context: '/'
-			}
-		} ),
-		new ExtractTextPlugin( {
-			filename: `build/css/style.css`,
+		new CleanPlugin([config.paths.dist], {
+			root: config.paths.root,
+			verbose: false,
+		}),
+		new CopyGlobsPlugin({
+			pattern: config.copy,
+			output: `[path]${assetsFilenames}.[ext]`,
+			manifest: config.manifest,
+		}),
+		new ExtractTextPlugin({
+			filename: `css/${assetsFilenames}.css`,
 			allChunks: true,
-			disable: !!argv.watch,
-		} ),
+			disable: (config.enabled.watcher),
+		}),
+		new webpack.LoaderOptionsPlugin({
+			minimize: config.enabled.optimize,
+			debug: config.enabled.watcher,
+			stats: { colors: true },
+		}),
+		new webpack.LoaderOptionsPlugin({
+			test: /\.s?css$/,
+			options: {
+				output: { path: config.paths.dist },
+				context: config.paths.assets,
+			},
+		}),
+		new webpack.LoaderOptionsPlugin({
+			test: /\.js$/,
+			options: {
+				eslint: { failOnWarning: false, failOnError: true },
+			},
+		}),
+		new FriendlyErrorsWebpackPlugin()
 	]
 };
 
-// Load only while watching
-if ( !!argv.watch ) {
-	webpackConfig.performance.hints = false;
-	webpackConfig.entry.unshift( 'webpack-hot-middleware/client?timeout=20000&reload=false' );
-	webpackConfig = mergeWithConcat( webpackConfig, require( './webpack.config.watch.js' ) );
+
+if (config.enabled.optimize) {
+	webpackConfig = merge(webpackConfig, require('./webpack.config.optimize'));
+}
+
+if (config.env.production) {
+	webpackConfig.plugins.push(new webpack.NoEmitOnErrorsPlugin());
+}
+
+if (config.enabled.cacheBusting) {
+	const WebpackAssetsManifest = require('webpack-assets-manifest');
+
+	webpackConfig.plugins.push(
+		new WebpackAssetsManifest({
+			output: 'assets.json',
+			space: 2,
+			writeToDisk: false,
+			assets: config.manifest,
+			replacer: require('./util/assetManifestsFormatter'),
+		})
+	);
+}
+
+if (config.enabled.watcher) {
+	webpackConfig.entry = require('./util/addHotMiddleware')(webpackConfig.entry);
+	webpackConfig = merge(webpackConfig, require('./webpack.config.watch'));
 }
 
 module.exports = webpackConfig;

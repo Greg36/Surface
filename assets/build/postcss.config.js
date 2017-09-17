@@ -1,15 +1,11 @@
-/* eslint-disable */
-
 const cssnanoConfig = {
 	preset: ['default', { discardComments: { removeAll: true } }]
 };
 
-module.exports = ({ file, options }) => {
-	return {
-		parser: options.isProduction ? 'postcss-safe-parser' : undefined,
-		plugins: {
-			cssnano: options.isProduction ? cssnanoConfig : false,
-			autoprefixer: true,
-		},
-	};
-};
+module.exports = ( { file, options } ) => ( {
+	parser: options.enabled.optimize ? 'postcss-safe-parser' : undefined,
+	plugins: {
+		cssnano: options.enabled.optimize ? cssnanoConfig : false,
+		autoprefixer: true,
+	},
+} );
