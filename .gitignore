@@ -5,3 +5,4 @@ tmp
 build
 assets/languages/en_US.mo
 !/assets/build/
+.cache-loader

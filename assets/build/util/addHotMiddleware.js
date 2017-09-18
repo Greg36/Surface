@@ -9,7 +9,7 @@ module.exports = ( entry ) => {
 
 	Object.keys( entry ).forEach( ( name ) => {
 		results[name] = Array.isArray( entry[name] ) ? entry[name].slice( 0 ) : [entry[name]];
-		results[name].unshift( `./hmr-client.js` );
+		results[name].unshift( `${__dirname}/hmr-client.js` );
 	} );
 
 	return results;

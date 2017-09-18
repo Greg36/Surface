@@ -1,21 +1,22 @@
 {
   "entry": {
-    "main": [
-      "./assets/js/main.js",
-      "./assets/css/style.scss"
+    "styles": [
+      "./css/style.scss"
+    ],
+    "app": [
+      "./js/main.js"
     ],
     "customizer": [
-      "./assets/js/admin/customizer.js"
+      "./js/admin/customizer.js"
     ]
   },
   "publicPath": "/wp-content/themes/--s--",
   "devUrl": "http://example.dev",
-  "proxyUrl": "http://localhost:3000",
+  "proxyUrl": "--s--:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [
-    "**/*.php",
-    "assets/js/**/*.js",
-    "assets/css/**/*.scss",
-    "!node_modules"
+    "../**/*.php",
+    "js/**/*.js",
+    "css/**/*.scss"
   ]
 }

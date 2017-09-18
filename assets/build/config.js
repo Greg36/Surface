@@ -7,7 +7,7 @@ const path = require( 'path' ),
 	config = merge( {
 		open: true,
 		copy: 'images/**/*',
-		proxyUrl: 'http://localhost:3000',
+		proxyUrl: '__url__:3000',
 		cacheBusting: '[name]_[hash]',
 		paths: {
 			root: rootPath,
@@ -28,7 +28,6 @@ module.exports = merge( config, {
 		production: isProduction,
 		development: ! isProduction
 	}, argv.env ),
-	publicPath: `${config.publicPath}/${path.basename( config.paths.dist )}/`,
 	manifest: {},
 } );
 
