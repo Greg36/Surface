@@ -1,7 +1,7 @@
 const path = require( 'path' ),
 	{ argv } = require( 'yargs' ),
 	merge = require( 'webpack-merge' ),
-	isProduction = Boolean( argv.env && ( argv.env.production || argv.p ) ),
+	isProduction = Boolean( argv.env && argv.env.production || argv.p ),
 	rootPath = process.cwd(),
 	userConfig = require( '../../config.json' ),
 	config = merge( {
@@ -28,6 +28,7 @@ module.exports = merge( config, {
 		production: isProduction,
 		development: ! isProduction
 	}, argv.env ),
+	publicPath: `${config.publicPath}/${path.basename( config.paths.dist )}/`,
 	manifest: {},
 } );
 

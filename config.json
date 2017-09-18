@@ -1,19 +1,20 @@
 {
   "entry": {
-    "styles": [
+    "main": [
+      "./js/main.js",
       "./css/style.scss"
-    ],
-    "app": [
-      "./js/main.js"
     ],
     "customizer": [
       "./js/admin/customizer.js"
     ]
   },
+  "enabled": {
+    "cacheBusting": false
+  },
   "publicPath": "/wp-content/themes/--s--",
   "devUrl": "http://example.dev",
   "proxyUrl": "--s--:3000",
-  "cacheBusting": "[name]_[hash:8]",
+  "cacheBusting": "",
   "watch": [
     "../**/*.php",
     "js/**/*.js",
