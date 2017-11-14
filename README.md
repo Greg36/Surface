@@ -23,7 +23,8 @@ Download `Underscores` from Github and rename the main folder to your brand new 
 | `'_s'` | `'new-theme-name'` | with single quotes |
 | `_s_` | `new_theme_name_` | |
 | `Text Domain: _s` | `Text Domain: new-theme-name` | |
-| <code>&nbsp;_s</code> | <code>&nbsp;New-Theme-Name</code> | with space in front |
+| `package _s` | `package New_Theme_Name` |  |
+| <code>&nbsp;_s</code> | <code>&nbsp;New Theme Name</code> | with space in front |
 | `_s-` | `new-theme-name-` | |
 | `--s--` | `new-theme-name` | |
 | `__url__` | `http://mysite.com` | or just `http://localhost` |
