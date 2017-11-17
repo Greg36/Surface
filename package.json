@@ -3,6 +3,34 @@
   "version": "0.0.1",
   "description": "",
   "main": "",
+  "babel": {
+    "presets": ["latest"]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "inpsyde"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "globals": {
+      "process": false
+    } ,
+    "env": {
+      "browser": true,
+      "mocha": true
+    },
+    "rules": {
+      "linebreak-style": 0,
+      "one-var": [ 2, "always" ],
+      "space-in-parens": [1, "always"],
+      "computed-property-spacing": 0,
+      "space-before-function-paren": 0,
+      "yoda": 0
+    }
+  },
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^7.1.4",
