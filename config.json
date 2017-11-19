@@ -12,8 +12,8 @@
     "cacheBusting": false
   },
   "publicPath": "/wp-content/themes/--s--",
-  "devUrl": "http://example.dev",
-  "proxyUrl": "--s--:3000",
+  "devUrl": "__url__",
+  "proxyUrl": "__url__:3000",
   "cacheBusting": "",
   "watch": [
     "../**/*.php",
