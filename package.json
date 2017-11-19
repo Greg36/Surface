@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "",
   "main": "",
+  "browserslist": [
+    "last 2 versions",
+    "android 4",
+    "opera 12"
+  ],
   "babel": {
     "presets": ["latest"]
   },

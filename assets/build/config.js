@@ -1,27 +1,29 @@
 const path = require( 'path' ),
 	{ argv } = require( 'yargs' ),
-	merge = require( 'webpack-merge' ),
-	isProduction = Boolean( argv.env && argv.env.production || argv.p ),
+	merge = require( 'webpack-merge' );
+
+const isProduction = Boolean( argv.env && argv.env.production || argv.p ),
 	rootPath = process.cwd(),
-	userConfig = require( '../../config.json' ),
-	config = merge( {
-		open: true,
-		copy: 'images/**/*',
-		proxyUrl: '__url__:3000',
-		cacheBusting: '[name]_[hash]',
-		paths: {
-			root: rootPath,
-			assets: path.join( rootPath, 'assets' ),
-			dist: path.join( rootPath, 'build' ),
-		},
-		enabled: {
-			sourceMaps: ! isProduction,
-			optimize: isProduction,
-			cacheBusting: isProduction,
-			watcher: Boolean( argv.watch ),
-		},
-		watch: [],
-	}, userConfig );
+	userConfig = require( '../../config.json' );
+
+const config = merge( {
+	open: true,
+	copy: 'images/**/*',
+	proxyUrl: '__url__:3000',
+	cacheBusting: '[name]_[hash]',
+	paths: {
+		root: rootPath,
+		assets: path.join( rootPath, 'assets' ),
+		dist: path.join( rootPath, 'build' ),
+	},
+	enabled: {
+		sourceMaps: !isProduction,
+		optimize: isProduction,
+		cacheBusting: isProduction,
+		watcher: Boolean( argv.watch ),
+	},
+	watch: [],
+}, userConfig );
 
 module.exports = merge( config, {
 	env: Object.assign( {
