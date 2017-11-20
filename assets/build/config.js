@@ -10,7 +10,7 @@ const config = merge( {
 	open: true,
 	copy: 'images/**/*',
 	proxyUrl: '__url__:3000',
-	cacheBusting: '[name]_[hash]',
+	cacheBusting: '[name]_[hash]', // @todo Implement manifest interface to make cache busting work.
 	paths: {
 		root: rootPath,
 		assets: path.join( rootPath, 'assets' ),
