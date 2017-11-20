@@ -4,28 +4,29 @@
 # Emulate web requests and make the WordPress application process them.
 
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
-        - \Helper\Functional
-        - Filesystem
         - WPDb
         - WordPress
+        - Asserts
+        - \Helper\Functional
     config:
         WPDb:
             dsn: 'mysql:host=localhost;dbname=wp_underscores_test'
             user: root
-            password:
-            dump: tmp/_data/dump.sql
+            password: ''
+            dump: 'tmp/_data/dump.sql'
             populate: true
             cleanup: true
             url: '__url__'
             tablePrefix: wp_
         WordPress:
             depends: WPDb
-            wpRootFolder: /var/www/html
+            wpRootFolder: 'c:/wamp/www/underscores'
             adminUsername: admin
             adminPassword: 1234
+            adminPath: '/wp-admin'
 env:
     gitlab:
         modules:

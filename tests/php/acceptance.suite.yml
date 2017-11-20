@@ -7,28 +7,25 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        - \Helper\Acceptance
         - WPDb
-        - WPWebDriver
+        - WPBrowser
+        - \Helper\Acceptance
     config:
         WPDb:
-            dsn: 'mysql:host=localhost;dbname=wp_underscores_test'
+            dsn: 'mysql:host=localhost;dbname=wp_underscores'
             user: root
-            password:
-            dump: tmp/_data/dump.sql
+            password: ''
+            dump: 'tmp/_data/dump.sql'
             populate: true
             cleanup: true
             url: '__url__'
+            urlReplacement: true
             tablePrefix: wp_
-        WPWebDriver:
-            url: '__url__'
-            browser: 'phantomjs'
-            port: 4444
-            restart: true
-            wait: 2
-            adminUsername: admin
-            adminPassword: 1234
-            adminUrl: /wp-admin
+        WPBrowser:
+            url: 'http://localhost/underscores'
+            adminUsername: 'admin'
+            adminPassword: '1234'
+            adminPath: '/wp-admin'
 env:
     gitlab:
         modules:
@@ -37,7 +34,7 @@ env:
                     dsn: 'mysql:host=mysql;dbname=wordpress;'
                     password: secret
                     url: 'http://localhost'
-                WPWebDriver:
+                WPBrowser:
                     browser: 'firefox'
                     url: 'http://localhost'
     chrome:

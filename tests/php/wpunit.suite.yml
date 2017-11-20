@@ -1,0 +1,23 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit or integration tests that require WordPress functions and classes.
+
+actor: WpunitTester
+modules:
+    enabled:
+        - WPLoader
+        - \Helper\Wpunit
+    config:
+        WPLoader:
+            wpRootFolder: "c:/wamp/www/underscores"
+            dbName: "wp_underscores_test"
+            dbHost: "localhost"
+            dbUser: "root"
+            dbPassword: ""
+            tablePrefix: "wp_"
+            domain: "localhost"
+            adminEmail: "admin@localhost"
+            title: "Test"
+            theme: underscores
+            plugins: ['']
+            activatePlugins: ['']
