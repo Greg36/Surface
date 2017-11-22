@@ -34,6 +34,6 @@
     "html_report": "tmp/backstop_data/html_report",
     "ci_report": "tmp/backstop_data/ci_report"
   },
-  "engine": "phantomjs",
+  "engine": "chrome",
   "report": ["browser"]
 }
