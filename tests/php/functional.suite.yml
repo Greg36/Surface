@@ -13,19 +13,21 @@ modules:
         - \Helper\Functional
     config:
         WPDb:
-            dsn: 'mysql:host=localhost;dbname=wp_underscores_test'
+            dsn: 'mysql:host=localhost;dbname=wp_db_test'
             user: root
-            password: ''
+            password: 'secret'
             dump: 'tmp/_data/dump.sql'
             populate: true
             cleanup: true
+            reconnect: false
             url: '__url__'
+            urlReplacement: true
             tablePrefix: wp_
         WordPress:
             depends: WPDb
-            wpRootFolder: 'c:/wamp/www/underscores'
+            wpRootFolder: '/tmp/your_root_folder'
             adminUsername: admin
-            adminPassword: 1234
+            adminPassword: secret
             adminPath: '/wp-admin'
 env:
     gitlab:

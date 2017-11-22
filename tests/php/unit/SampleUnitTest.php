@@ -16,9 +16,11 @@ class SampleUnitTest extends \Codeception\Test\Unit
     {
     }
 
-    // tests
-    public function testSomeFeature()
+	/**
+	 * Test if true is true
+	 */
+    public function testAssertTrue()
     {
-
+    	$this->assertTrue(true);
     }
 }

@@ -9,15 +9,14 @@ modules:
         - \Helper\Wpunit
     config:
         WPLoader:
-            wpRootFolder: "c:/wamp/www/underscores"
-            dbName: "wp_underscores_test"
-            dbHost: "localhost"
-            dbUser: "root"
-            dbPassword: ""
-            tablePrefix: "wp_"
-            domain: "localhost"
-            adminEmail: "admin@localhost"
-            title: "Test"
-            theme: underscores
-            plugins: ['']
-            activatePlugins: ['']
+            loadOnly: false
+            wpRootFolder: '/tmp/your_root_folder'
+            dbName: 'wp_db_test'
+            dbHost: 'localhost'
+            dbUser: 'root'
+            dbPassword: 'secret'
+            tablePrefix: 'wp_'
+            domain: ''
+            adminEmail: 'admin@localhost'
+            title: 'Test'
+            theme: '--s--'

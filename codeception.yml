@@ -1,9 +1,9 @@
 paths:
     tests: tests/php
-    log: temp/_output
-    data: temp/_data
+    log: tmp/_output
+    data: tmp/_data
     support: tests/php/_support
-    envs: temp/_envs
+    envs: tmp/_envs
 actor_suffix: Tester
 extensions:
     enabled:

@@ -12,9 +12,9 @@ modules:
         - \Helper\Acceptance
     config:
         WPDb:
-            dsn: 'mysql:host=localhost;dbname=wp_underscores'
+            dsn: 'mysql:host=localhost;dbname=wp_db_test'
             user: root
-            password: ''
+            password: 'secret'
             dump: 'tmp/_data/dump.sql'
             populate: true
             cleanup: true
@@ -22,9 +22,9 @@ modules:
             urlReplacement: true
             tablePrefix: wp_
         WPBrowser:
-            url: 'http://localhost/underscores'
+            url: '__url__'
             adminUsername: 'admin'
-            adminPassword: '1234'
+            adminPassword: 'secret'
             adminPath: '/wp-admin'
 env:
     gitlab:
