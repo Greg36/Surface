@@ -13,21 +13,21 @@ modules:
         - \Helper\Functional
     config:
         WPDb:
-            dsn: 'mysql:host=localhost;dbname=wp_db_test'
-            user: root
-            password: 'secret'
+            dsn: 'mysql:host=%DB_Host%;dbname=%DB_Name%'
+            user: %DB_User%
+            password: %DB_Pass%
             dump: 'tmp/_data/dump.sql'
             populate: true
             cleanup: true
             reconnect: false
-            url: '__url__'
+            url: %WP_URL%
             urlReplacement: true
             tablePrefix: wp_
         WordPress:
             depends: WPDb
-            wpRootFolder: '/tmp/your_root_folder'
-            adminUsername: admin
-            adminPassword: secret
+            wpRootFolder: %WP_RootFolder%
+            adminUsername: 'admin'
+            adminPassword: '1234'
             adminPath: '/wp-admin'
 env:
     gitlab:

@@ -12,19 +12,19 @@ modules:
         - \Helper\Acceptance
     config:
         WPDb:
-            dsn: 'mysql:host=localhost;dbname=wp_db_test'
-            user: root
-            password: 'secret'
+            dsn: 'mysql:host=%DB_Host%;dbname=%DB_Name%'
+            user: %DB_User%
+            password: %DB_Pass%
             dump: 'tmp/_data/dump.sql'
             populate: true
             cleanup: true
-            url: '__url__'
+            url: %WP_URL%
             urlReplacement: true
             tablePrefix: wp_
         WPBrowser:
-            url: '__url__'
+            url: %WP_URL%
             adminUsername: 'admin'
-            adminPassword: 'secret'
+            adminPassword: '1234'
             adminPath: '/wp-admin'
 env:
     gitlab:
