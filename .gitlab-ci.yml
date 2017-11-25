@@ -1,37 +1,71 @@
-services:
-  - mysql:latest
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - node_modules/
+    - vendor/
 
 variables:
   # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
   MYSQL_DATABASE: wordpress
   MYSQL_ROOT_PASSWORD: secret
 
-image: tutum/wordpress
-
-dev:
-  stage: test
+build:
+  stage: build
+  image: node:latest
+  artifacts:
+    paths:
+      - build/
   script:
-    - bash assets/build/ci_install.sh > /dev/null
-    - cd ..
-    - cp -r $CI_PROJECT_NAME /var/www/html/wp-content/themes
-    - cd /var/www/html
-    - cd /var/www/html/wp-content/themes
-    - cd $CI_PROJECT_NAME
-    - bash assets/build/wp_install.sh > /dev/null
-    - npm install --silent > /dev/null 2>&1
+    - yarn install --silent
     - npm run build:production
-    - xvfb-run java -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -jar ~/selenium/selenium-server-standalone-3.0.1.jar > /dev/null 2>&1 &
-    - sleep 5
-    - mkdir tmp/_data -p
-    - chmod -R 777 tmp
-    - mysqldump -u root -psecret --host=mysql wordpress > tmp/_data/dump.sql
-    - php /tmp/wpcept/wpcept g:helper Acceptance | php /tmp/wpcept/wpcept g:helper Functional | php /tmp/wpcept/wpcept g:helper Integration | php /tmp/wpcept/wpcept g:helper Unit
-    - php /tmp/wpcept/wpcept build
-    - php /tmp/wpcept/wpcept run functional --env gitlab
-    - php /tmp/wpcept/wpcept run integration --env gitlab
-    - php /tmp/wpcept/wpcept run unit --env gitlab
-    - php /tmp/wpcept/wpcept run acceptance --env gitlab
-#    - xvfb-run -a ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run > /dev/null 2>&1
-    - Xvfb :90 > /dev/null 2>&1 &
-    - export DISPLAY=:90
-    - ./node_modules/.bin/karma start assets/build/karma.conf.js --browsers gecko --single-run
+
+test 1:2 php:
+  stage: test
+  image: wordpress:php7.0
+  dependencies:
+    - build
+  services:
+    - mysql:latest
+  script:
+    # Install MySQL client and Git
+    - apt-get update -yqq && apt-get install -yqq mysql-client > /dev/null && apt-get install -yqq git-all > /dev/null
+    # Install WP-CLI
+    - curl -s -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    - chmod +x /tmp/wp-cli.phar && mv /tmp/wp-cli.phar /usr/local/bin/wp
+    # Install WordPress
+    - cp -r /usr/src/wordpress/. /var/www/html
+    - wp core config --path=/var/www/html --dbhost=mysql --dbname=wordpress --dbprefix=wp_ --dbuser=root --dbpass="secret" --allow-root
+    - wp core install --path=/var/www/html --url=http://localhost --title="Test WP" --admin_user=admin --admin_password="1234" --admin_email=example@example.com --allow-root
+    # Install Composer
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    # Copy repository to WordPress installation
+    - cp -r $CI_PROJECT_DIR /var/www/html/wp-content/themes && cd /var/www/html/wp-content/themes/$CI_PROJECT_NAME
+    # Install wp-browser
+    - composer require lucatume/wp-browser --dev --no-progress
+    # Prepare to test
+    - mkdir tmp/_data -p && wp db export tmp/_data/dump.sql --allow-root && docker-php-ext-install pdo_mysql > /dev/null
+    - service apache2 start
+    # Test
+    - vendor/bin/codecept run unit --env gitlab
+    - vendor/bin/codecept run functional --env gitlab
+    - vendor/bin/codecept run acceptance --env gitlab
+    - vendor/bin/codecept run wpunit --env gitlab
+
+test 2:2 js:
+  stage: test
+  image: node:latest
+  script:
+    # Install npm packages
+    - yarn install --silent
+    # Install Chrome
+    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+    - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    - apt-get update -yqq && apt-get install -yqq google-chrome-stable > /dev/null
+    # Install Firefox
+    - wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/57.0/linux-x86_64/en-US/firefox-57.0.tar.bz2
+    - tar -C /opt -xjf /tmp/firefox.tar.bz2 && mv /opt/firefox /opt/firefox-57.0 && ln -fs /opt/firefox-57.0/firefox /usr/bin/firefox
+    # Test
+    - npm run test

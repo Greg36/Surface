@@ -48,8 +48,12 @@ module.exports = function( config ) {
 		singleRun: true,
 
 		// start these browsers
-		browsers: ['ChromeHeadless', 'FirefoxHeadless'],
+		browsers: ['ChromeHeadlessNoSandbox', 'FirefoxHeadless'],
 		customLaunchers: {
+			ChromeHeadlessNoSandbox: {
+				base: 'ChromeHeadless',
+				flags: ['--no-sandbox']
+			},
 			FirefoxHeadless: {
 				base: 'Firefox',
 				flags: [ '-headless' ],

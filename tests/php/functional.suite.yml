@@ -37,3 +37,5 @@ env:
                     dsn: 'mysql:host=mysql;dbname=wordpress;'
                     password: secret
                     url: 'http://localhost'
+                WordPress:
+                    wpRootFolder: '/var/www/html'

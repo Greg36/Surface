@@ -32,18 +32,8 @@ env:
             config:
                 WPDb:
                     dsn: 'mysql:host=mysql;dbname=wordpress;'
-                    password: secret
+                    user: 'root'
+                    password: 'secret'
                     url: 'http://localhost'
                 WPBrowser:
-                    browser: 'firefox'
                     url: 'http://localhost'
-    chrome:
-         modules:
-            config:
-                WPWebDriver:
-                    browser: 'chrome'
-    firefox:
-         modules:
-            config:
-                WPWebDriver:
-                    browser: 'firefox'

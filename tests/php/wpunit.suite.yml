@@ -20,3 +20,14 @@ modules:
             adminEmail: 'admin@localhost'
             title: 'Test'
             theme: 'underscores'
+env:
+    gitlab:
+        modules:
+            config:
+                WPLoader:
+                    wpRootFolder: '/var/www/html'
+                    dbName: 'wordpress'
+                    dbHost: 'mysql'
+                    dbUser: 'root'
+                    dbPassword: 'secret'
+                    domain: 'localhost'
