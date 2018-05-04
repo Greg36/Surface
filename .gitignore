@@ -8,3 +8,8 @@ assets/languages/en_US.mo
 .cache-loader
 vendor
 tests/php/_support/_generated
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
