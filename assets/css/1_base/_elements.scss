@@ -5,7 +5,8 @@ html {
 *,
 *:before,
 *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior;
+     see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
 }
 
@@ -15,10 +16,11 @@ body {
 
 blockquote, q {
   quotes: "" "";
+  margin: 0;
 
   &:before,
   &:after {
-    content: "";
+	content: "";
   }
 }
 
@@ -26,7 +28,6 @@ hr {
   background-color: $color__background-hr;
   border: 0;
   height: 1px;
-  margin-bottom: 1.5em;
 }
 
 img {
@@ -35,35 +36,35 @@ img {
 }
 
 figure {
-  margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+  margin: 0;
 }
-
 
 /* LINKS */
 a {
   color: $color__link;
 
   &:visited {
-    color: $color__link-visited;
+	color: $color__link-visited;
   }
   &:hover,
   &:focus,
   &:active {
-    color: $color__link-hover;
+	color: $color__link-hover;
   }
   &:focus {
-    outline: thin dotted;
+	outline: thin dotted;
   }
   &:hover,
   &:active {
-    outline: 0;
+	outline: 0;
   }
 }
 
 /* LISTS */
 
 ul, ol {
-  margin: 0 0 1.5em 3em;
+  margin: 0;
+  padding: 0;
 }
 
 ul {
@@ -74,23 +75,16 @@ ol {
   list-style: decimal;
 }
 
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
-}
-
 dt {
   font-weight: bold;
 }
 
-dd {
-  margin: 0 1.5em 1.5em;
+dl, dd {
+  margin: 0;
 }
 
 /* TABLES */
 
 table {
-  margin: 0 0 1.5em;
   width: 100%;
 }

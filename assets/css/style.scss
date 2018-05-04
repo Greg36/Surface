@@ -1,128 +1,137 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Utilities
+# 0. Utilities
+  ## MQ - media query tool
   ## Mixins
+  ## Functions
   ## Variables
-  ## Normalize
   ## Clearings
-# Base
+  ## Normalize
+# 1. Base
   ## Elements
   ## Typography
   ## Forms
-# Components
+# 2. Atoms
   ## Accessibility
   ## Alignments
+# 3. Molecules
   ## Comments
   ## Media
   ## Navigation
   ## Widgets
-#Layout
-  ## Grid
+# 4. Organisms
   ## Header
+  ## Main
   ## Content
   ## Sidebar
-#Pages
+  ## Footer
+# 5. Templates
+  ## Grid
+# 6. Theme
+
 --------------------------------------------------------------*/
 
+/*
+ @todo: refactor html to modular - this needs thinking in terms of "the wordpress way"
+ @todo: refactor class names to BEM
+ @todo: prefix classes with a- m- o- prefixes
+ @todo: think on how to extract the styling to theme
+ */
 
-/*--------------------------------------------------------------
-# Utilities
---------------------------------------------------------------*/
+/*------------------------------------*\
+  # 0. Utilities
+\*------------------------------------*/
 
-@import "utilities/_mixins";
+// MediaQueries Sass tool
+@import "0_utilities/_mq.scss";
 
-@import "utilities/_variables";
+// Sass mixins
+@import "0_utilities/_mixins";
 
-@import "utilities/_normalize";
+// Sass functions
+@import "0_utilities/_functions";
 
-@import "utilities/_clearings";
+// Variables definitions
+@import "0_utilities/_variables";
 
-/*--------------------------------------------------------------
-# Base
---------------------------------------------------------------*/
+// Clearing classes
+@import "0_utilities/_clearings";
 
-/*---------------------------
-## Elements
----------------------------*/
-@import "base/_elements";
-
-/*---------------------------
-## Typography
----------------------------*/
-@import "base/_typography";
-
-/*---------------------------
-## Forms
----------------------------*/
-@import "base/_forms";
+// CSS normalize
+@import "0_utilities/_normalize";
 
 
-/*--------------------------------------------------------------
-# Components
---------------------------------------------------------------*/
+/*------------------------------------*\
+  # 1. Base
+\*------------------------------------*/
 
-/*---------------------------
-## Accessibility
----------------------------*/
-@import "components/_accessibility";
+// Elements
+@import "1_base/_elements";
 
-/*---------------------------
-## Alignments
----------------------------*/
-@import "components/_alignments";
+// Typography
+@import "1_base/_typography";
 
-/*---------------------------
-## Comments
----------------------------*/
-@import "components/_comments";
-
-/*---------------------------
-## Media
----------------------------*/
-@import "components/_media";
-
-/*---------------------------
-## Navigation
----------------------------*/
-@import "components/_navigation";
-
-/*---------------------------
-## Widgets
----------------------------*/
-@import "components/_widgets";
+// Forms
+@import "1_base/_forms";
 
 
-/*--------------------------------------------------------------
-# Layout
---------------------------------------------------------------*/
+/*------------------------------------*\
+  # 2. Atoms
+\*------------------------------------*/
 
-/*---------------------------
-## Grid
----------------------------*/
-@import "layout/_grid";
+// Accessibility
+@import "2_atoms/_accessibility";
 
-/*---------------------------
-## Header
----------------------------*/
-@import "layout/_header";
+// Alignments
+@import "2_atoms/_alignments";
 
-/*---------------------------
-## Main
----------------------------*/
-@import "layout/_main";
 
-/*---------------------------
-## Content
----------------------------*/
-@import "layout/_content";
+/*------------------------------------*\
+  # 3. Molecules
+\*------------------------------------*/
 
-/*---------------------------
-## Sidebar
----------------------------*/
-@import "layout/_sidebar";
 
-/*---------------------------
-## Footer
----------------------------*/
-@import "layout/_footer";
+// Comments
+@import "3_molecules/_comments";
+
+// Media
+@import "3_molecules/_media";
+
+// Navigation
+@import "3_molecules/_navigation";
+
+// Widgets
+@import "3_molecules/_widgets";
+
+
+/*------------------------------------*\
+  # 4. Organisms
+\*------------------------------------*/
+
+// Header
+@import "4_organisms/_header";
+
+// Main
+@import "4_organisms/_main";
+
+// Content
+@import "4_organisms/_content";
+
+// Sidebar
+@import "4_organisms/_sidebar";
+
+// Footer
+@import "4_organisms/_footer";
+
+
+/*------------------------------------*\
+  # 5. Templates
+\*------------------------------------*/
+
+@import "5_templates/_grid";
+
+
+/*------------------------------------*\
+  # 6. Theme
+\*------------------------------------*/

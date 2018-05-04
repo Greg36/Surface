@@ -1,0 +1,284 @@
+/*
+ * Basic parts of the Foundation XY GRID
+ * @link https://foundation.zurb.com/sites/docs/xy-grid.html
+ */
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.cell {
+  flex: 0 0 auto;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.cell.auto {
+  flex: 1 1 0;
+}
+
+.cell.shrink {
+  flex: 0 0 auto;
+}
+
+.grid > .auto {
+  width: auto;
+}
+
+.grid > .shrink {
+  width: auto;
+}
+
+.grid > .small-shrink, .grid > .small-full, .grid > .small-1, .grid > .small-2, .grid > .small-3, .grid > .small-4, .grid > .small-5, .grid > .small-6, .grid > .small-7, .grid > .small-8, .grid > .small-9, .grid > .small-10, .grid > .small-11, .grid > .small-12 {
+  flex-basis: auto;
+}
+
+@include mq($from: tablet) {
+  .grid > .medium-shrink, .grid > .medium-full, .grid > .medium-1, .grid > .medium-2, .grid > .medium-3, .grid > .medium-4, .grid > .medium-5, .grid > .medium-6, .grid > .medium-7, .grid > .medium-8, .grid > .medium-9, .grid > .medium-10, .grid > .medium-11, .grid > .medium-12 {
+	flex-basis: auto;
+  }
+}
+
+@include mq($from: desktop) {
+  .grid > .large-shrink, .grid > .large-full, .grid > .large-1, .grid > .large-2, .grid > .large-3, .grid > .large-4, .grid > .large-5, .grid > .large-6, .grid > .large-7, .grid > .large-8, .grid > .large-9, .grid > .large-10, .grid > .large-11, .grid > .large-12 {
+	flex-basis: auto;
+  }
+}
+
+/*
+ * Cells rules set
+ */
+
+.grid > .small-1 {
+  width: 8.33333%;
+}
+
+.grid > .small-2 {
+  width: 16.66667%;
+}
+
+.grid > .small-3 {
+  width: 25%;
+}
+
+.grid > .small-4 {
+  width: 33.33333%;
+}
+
+.grid > .small-5 {
+  width: 41.66667%;
+}
+
+.grid > .small-6 {
+  width: 50%;
+}
+
+.grid > .small-7 {
+  width: 58.33333%;
+}
+
+.grid > .small-8 {
+  width: 66.66667%;
+}
+
+.grid > .small-9 {
+  width: 75%;
+}
+
+.grid > .small-10 {
+  width: 83.33333%;
+}
+
+.grid > .small-11 {
+  width: 91.66667%;
+}
+
+.grid > .small-12 {
+  width: 100%;
+}
+
+@include mq($from: tablet) {
+  .grid > .medium-auto {
+	flex: 1 1 0;
+	width: auto;
+  }
+  .grid > .medium-shrink {
+	flex: 0 0 auto;
+	width: auto;
+  }
+  .grid > .medium-1 {
+	width: 8.33333%;
+  }
+  .grid > .medium-2 {
+	width: 16.66667%;
+  }
+  .grid > .medium-3 {
+	width: 25%;
+  }
+  .grid > .medium-4 {
+	width: 33.33333%;
+  }
+  .grid > .medium-5 {
+	width: 41.66667%;
+  }
+  .grid > .medium-6 {
+	width: 50%;
+  }
+  .grid > .medium-7 {
+	width: 58.33333%;
+  }
+  .grid > .medium-8 {
+	width: 66.66667%;
+  }
+  .grid > .medium-9 {
+	width: 75%;
+  }
+  .grid > .medium-10 {
+	width: 83.33333%;
+  }
+  .grid > .medium-11 {
+	width: 91.66667%;
+  }
+  .grid > .medium-12 {
+	width: 100%;
+  }
+}
+
+@include mq($from: desktop) {
+  .grid > .large-auto {
+	flex: 1 1 0;
+	width: auto;
+  }
+  .grid > .large-shrink {
+	flex: 0 0 auto;
+	width: auto;
+  }
+  .grid > .large-1 {
+	width: 8.33333%;
+  }
+  .grid > .large-2 {
+	width: 16.66667%;
+  }
+  .grid > .large-3 {
+	width: 25%;
+  }
+  .grid > .large-4 {
+	width: 33.33333%;
+  }
+  .grid > .large-5 {
+	width: 41.66667%;
+  }
+  .grid > .large-6 {
+	width: 50%;
+  }
+  .grid > .large-7 {
+	width: 58.33333%;
+  }
+  .grid > .large-8 {
+	width: 66.66667%;
+  }
+  .grid > .large-9 {
+	width: 75%;
+  }
+  .grid > .large-10 {
+	width: 83.33333%;
+  }
+  .grid > .large-11 {
+	width: 91.66667%;
+  }
+  .grid > .large-12 {
+	width: 100%;
+  }
+}
+
+/*
+ * Container rules set
+ */
+
+.small-up-1 > .cell {
+  width: 100%;
+}
+
+.small-up-2 > .cell {
+  width: 50%;
+}
+
+.small-up-3 > .cell {
+  width: 33.33333%;
+}
+
+.small-up-4 > .cell {
+  width: 25%;
+}
+
+.small-up-5 > .cell {
+  width: 20%;
+}
+
+.small-up-6 > .cell {
+  width: 16.66667%;
+}
+
+.small-up-7 > .cell {
+  width: 14.28571%;
+}
+
+.small-up-8 > .cell {
+  width: 12.5%;
+}
+
+@include mq($from: tablet) {
+  .medium-up-1 > .cell {
+	width: 100%;
+  }
+  .medium-up-2 > .cell {
+	width: 50%;
+  }
+  .medium-up-3 > .cell {
+	width: 33.33333%;
+  }
+  .medium-up-4 > .cell {
+	width: 25%;
+  }
+  .medium-up-5 > .cell {
+	width: 20%;
+  }
+  .medium-up-6 > .cell {
+	width: 16.66667%;
+  }
+  .medium-up-7 > .cell {
+	width: 14.28571%;
+  }
+  .medium-up-8 > .cell {
+	width: 12.5%;
+  }
+}
+
+@include mq($from: desktop) {
+  .large-up-1 > .cell {
+	width: 100%;
+  }
+  .large-up-2 > .cell {
+	width: 50%;
+  }
+  .large-up-3 > .cell {
+	width: 33.33333%;
+  }
+  .large-up-4 > .cell {
+	width: 25%;
+  }
+  .large-up-5 > .cell {
+	width: 20%;
+  }
+  .large-up-6 > .cell {
+	width: 16.66667%;
+  }
+  .large-up-7 > .cell {
+	width: 14.28571%;
+  }
+  .large-up-8 > .cell {
+	width: 12.5%;
+  }
+}

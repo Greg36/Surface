@@ -1,24 +1,23 @@
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
 }
 
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
 object {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 /* Make sure logo link wraps around logo image. */
-.custom-logo-link{
-	display: inline-block;
+.custom-logo-link {
+  display: inline-block;
 }
-
 
 /* CAPTIONS */
 
@@ -27,7 +26,9 @@ object {
   max-width: 100%;
 
   img[class*="wp-image-"] {
-	@include center-block;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
   }
 
   .wp-caption-text {
@@ -54,7 +55,7 @@ object {
   // Loops to enumerate the classes for gallery columns.
   @for $i from 2 through 9 {
 	.gallery-columns-#{$i} & {
-	  max-width: ( 100% / $i );
+	  max-width: (100% / $i);
 	}
   }
 }

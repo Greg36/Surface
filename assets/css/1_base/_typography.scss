@@ -4,42 +4,34 @@ input,
 select,
 optgroup,
 textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1);
-	line-height: $font__line-height-body;
+  color: $color__text-main;
+  font-family: $font__main;
+  font-size: rem(16px);
+  line-height: $font__line-height-body;
 }
 
 /* HEADINGS */
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
+  margin: 0;
 }
 
 /* COPY */
 
 p {
-  margin-bottom: 1.5em;
+  margin: 0;
 }
 
 dfn, cite, em, i {
   font-style: italic;
 }
 
-blockquote {
-  margin: 0 1.5em;
-}
-
-address {
-  margin: 0 0 1.5em;
-}
-
 pre {
   background: $color__background-pre;
   font-family: $font__pre;
-  @include font-size(0.9375);
+  font-size: rem(15px);
   line-height: $font__line-height-pre;
-  margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
   padding: 1.6em;
@@ -47,7 +39,7 @@ pre {
 
 code, kbd, tt, var {
   font-family: $font__code;
-  @include font-size(0.9375);
+  font-size: rem(15px);
 }
 
 abbr, acronym {
