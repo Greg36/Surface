@@ -1,35 +1,34 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# 0. Utilities
+# 0. Settings
   ## MQ - media query tool
   ## Mixins
   ## Functions
   ## Variables
-  ## Clearings
-  ## Normalize
 # 1. Base
+  ## Normalize
   ## Elements
   ## Typography
   ## Forms
-# 2. Atoms
-  ## Accessibility
-  ## Alignments
-# 3. Molecules
-  ## Comments
+# 2. Layouts
+  ## Grid
+# 3. Objects
   ## Media
+# 4. Components
+  ## Comments
   ## Navigation
-  ## Widgets
-# 4. Organisms
   ## Header
-  ## Main
-  ## Content
   ## Sidebar
   ## Footer
-# 5. Templates
-  ## Grid
-# 6. Theme
-
+  ## Widgets
+  ## Content
+# 5. Theme
+# 6. Scope
+# 7. Utilities
+  ## Clearings
+  ## Accessibility
+  ## Alignments
 --------------------------------------------------------------*/
 
 /*
@@ -40,98 +39,102 @@
  */
 
 /*------------------------------------*\
-  # 0. Utilities
+  # 0. Settings
 \*------------------------------------*/
 
 // MediaQueries Sass tool
-@import "0_utilities/_mq.scss";
+@import "settings/_mq.scss";
 
 // Sass mixins
-@import "0_utilities/_mixins";
+@import "settings/_mixins";
 
 // Sass functions
-@import "0_utilities/_functions";
+@import "settings/_functions";
 
 // Variables definitions
-@import "0_utilities/_variables";
-
-// Clearing classes
-@import "0_utilities/_clearings";
-
-// CSS normalize
-@import "0_utilities/_normalize";
+@import "settings/_variables";
 
 
 /*------------------------------------*\
   # 1. Base
 \*------------------------------------*/
 
+// CSS normalize
+@import "base/normalize";
+
 // Elements
-@import "1_base/_elements";
+@import "base/_elements";
 
 // Typography
-@import "1_base/_typography";
+@import "base/_typography";
 
 // Forms
-@import "1_base/_forms";
+@import "base/_forms";
 
 
 /*------------------------------------*\
-  # 2. Atoms
+  # 2. Layouts
 \*------------------------------------*/
 
-// Accessibility
-@import "2_atoms/_accessibility";
+// Grid layout
+@import "layouts/_grid";
 
-// Alignments
-@import "2_atoms/_alignments";
-
+// Main layouts
+@import "layouts/_main";
 
 /*------------------------------------*\
-  # 3. Molecules
+  # 3. Objects
 \*------------------------------------*/
-
-
-// Comments
-@import "3_molecules/_comments";
 
 // Media
-@import "3_molecules/_media";
+@import "objects/media";
+
+
+/*------------------------------------*\
+  # 4. Components
+\*------------------------------------*/
+
+// Comments
+@import "components/_comments";
 
 // Navigation
-@import "3_molecules/_navigation";
+@import "components/_navigation";
 
 // Widgets
-@import "3_molecules/_widgets";
-
-
-/*------------------------------------*\
-  # 4. Organisms
-\*------------------------------------*/
+@import "components/_widgets";
 
 // Header
-@import "4_organisms/_header";
-
-// Main
-@import "4_organisms/_main";
+@import "components/header";
 
 // Content
-@import "4_organisms/_content";
+@import "components/content";
 
 // Sidebar
-@import "4_organisms/_sidebar";
+@import "components/sidebar";
 
 // Footer
-@import "4_organisms/_footer";
+@import "components/footer";
 
 
 /*------------------------------------*\
-  # 5. Templates
+  # 5. Theme
 \*------------------------------------*/
-
-@import "5_templates/_grid";
 
 
 /*------------------------------------*\
-  # 6. Theme
+  # 6. Scope
 \*------------------------------------*/
+
+
+/*------------------------------------*\
+  # 7. Utilities
+\*------------------------------------*/
+
+// Clearing classes
+@import "utilities/clearings";
+
+// Accessibility
+@import "utilities/accessibility";
+
+// Alignments
+@import "utilities/alignments";
