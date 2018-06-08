@@ -23,7 +23,7 @@ get_header();
 							printf( esc_html__( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' );
 							?>
 						</h1>
-					</header><!-- .page-header -->
+					</header>
 
 					<?php
 					/* Start the Loop */

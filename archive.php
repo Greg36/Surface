@@ -20,7 +20,7 @@ get_header();
 						the_archive_title( '<h1 class="c_archive__title">', '</h1>' );
 						the_archive_description( '<div class="c-archive__description">', '</div>' );
 						?>
-					</header><!-- .page-header -->
+					</header>
 
 					<?php
 					/* Start the Loop */

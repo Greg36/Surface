@@ -42,7 +42,7 @@
 				?>
 				<p class="c-site-branding__description"><?php echo $_s_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
-		</div><!-- .site-branding -->
+		</div>
 
 		<nav id="site-navigation" class="js-main-navigation c-main-navigation">
 			<button class="o-menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
@@ -53,7 +53,7 @@
 				'menu_class'     => 'c-menu'
 			) );
 			?>
-		</nav><!-- #site-navigation -->
+		</nav>
 	</header><!-- #masthead -->
 
 	<div id="content" class="l-content c-content">

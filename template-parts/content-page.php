@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'c-page' ); ?>>
 	<header class="c-page__header">
 		<?php the_title( '<h1 class="c-page__title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	</header>
 
 	<?php _s_post_thumbnail(); ?>
 
@@ -25,7 +25,7 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="c-page__footer">
@@ -47,6 +47,6 @@
 				'</span>'
 			);
 			?>
-		</footer><!-- .entry-footer -->
+		</footer>
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>

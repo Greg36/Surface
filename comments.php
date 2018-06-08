@@ -44,7 +44,7 @@ if ( post_password_required() ) {
 				);
 			}
 			?>
-		</h2><!-- .comments-title -->
+		</h2>
 
 		<?php echo _s_comments_navigation(); ?>
 
@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 				'walker'     => new _s_Walker_Comment()
 			) );
 			?>
-		</ol><!-- .comment-list -->
+		</ol>
 
 		<?php
 		echo _s_comments_navigation();

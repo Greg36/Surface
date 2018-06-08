@@ -21,17 +21,17 @@
 				_s_posted_on();
 				_s_posted_by();
 				?>
-			</div><!-- .entry-meta -->
+			</div>
 		<?php endif; ?>
-	</header><!-- .entry-header -->
+	</header>
 
 	<?php _s_post_thumbnail(); ?>
 
 	<div class="c-entry__summary">
 		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+	</div>
 
 	<footer class="c-entry__footer">
 		<?php _s_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

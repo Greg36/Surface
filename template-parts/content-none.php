@@ -12,7 +12,7 @@
 <section class="c-not-found c-page">
 	<header class="c-not-found__header">
 		<h1 class="c-not-found__title"><?php esc_html_e( 'Nothing Found', '_s' ); ?></h1>
-	</header><!-- .page-header -->
+	</header>
 
 	<div class="c-not-found__content">
 		<?php
@@ -47,5 +47,5 @@
 
 		endif;
 		?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+	</div>
+</section>

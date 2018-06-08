@@ -20,9 +20,9 @@
 			_s_posted_on();
 			_s_posted_by();
 			?>
-		</div><!-- .entry-meta -->
+		</div>
 
-	</header><!-- .entry-header -->
+	</header>
 
 	<?php _s_post_thumbnail(); ?>
 
@@ -35,9 +35,9 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="c-post__footer">
 		<?php _s_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

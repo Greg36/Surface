@@ -16,7 +16,7 @@ get_header();
 			<section class="c-not-found c-page">
 				<header class="c-not-found__header">
 					<h1 class="c-not-found__title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', '_s' ); ?></h1>
-				</header><!-- .page-header -->
+				</header>
 
 				<div class="c-not-found__content">
 					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '_s' ); ?></p>
@@ -40,7 +40,7 @@ get_header();
 							) );
 							?>
 						</ul>
-					</div><!-- .widget -->
+					</div>
 
 					<?php
 					/* translators: %1$s: smiley */
@@ -50,8 +50,8 @@ get_header();
 					the_widget( 'WP_Widget_Tag_Cloud' );
 					?>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+				</div>
+			</section>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
