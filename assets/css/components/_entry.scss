@@ -1,0 +1,91 @@
+/* POSTS AND PAGES */
+
+/* ENTRY - EXCERPT */
+.c-entry {
+  &__header {}
+  &__title {}
+  &__meta {}
+  &__summary {}
+  &__footer {}
+}
+
+
+/* POST - SINGLE */
+
+.c-post {
+  &__header {}
+  &__title {}
+  &__meta {}
+  &__content {}
+  &__footer {}
+}
+
+
+/* PAGE - SINGLE */
+
+.c-page {
+  &__header {}
+  &__title {}
+  &__meta {}
+  &__content {}
+  &__footer {}
+}
+
+
+/* ENTRY CONTENT */
+
+.c-posted-on {
+  &__date {
+	&--published {}
+	&----updated {}
+  }
+}
+
+.c-post-thumbnail {
+  &__image {}
+}
+
+.c-post-links {
+  &__cat {}
+  &__tags {}
+  &__comments {}
+}
+
+.c-byline {
+  &__author {}
+}
+
+// Display byline only on single post and multi-author blogs
+.c-byline,
+.c-posted-on__date--updated:not(.c-posted-on__date--published) {
+  display: none;
+}
+body.single .c-byline,
+body.group-blog .c-byline {
+  display: inline;
+}
+
+
+/* ENTRY NAVIGATION */
+
+.c-post-nav {
+  &__links {}
+  &__previous {}
+  &__next {}
+}
+
+.c-page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+
+/* ENTRY NOT FOUND*/
+
+.c-not-found {
+  &__header {}
+  &__title {}
+  &__meta {}
+  &__summary {}
+  &__footer {}
+}

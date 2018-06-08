@@ -1,0 +1,27 @@
+.c-comments-nav {
+  &__links {}
+  &__prev {}
+  &__next {}
+}
+
+.c-comment {
+  &--author {
+	display: block;
+  }
+}
+
+.c-comments-area {
+  &__title {}
+  &__list {}
+  &__no-comments {}
+}
+
+.c-comment {
+  &__body {}
+  &__meta {}
+  &__author {}
+  &__metadata {}
+  &__awaiting-moderation {}
+  &__content {}
+  &__reply {}
+}

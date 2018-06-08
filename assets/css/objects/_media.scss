@@ -1,65 +1,7 @@
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
+// Core class
+.wp-smiley {
   border: none;
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
-}
-
-/* Make sure embeds and iframes fit their containers. */
-embed,
-iframe,
-object {
-  max-width: 100%;
-}
-
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-  display: inline-block;
-}
-
-/* CAPTIONS */
-
-.wp-caption {
-  margin-bottom: 1.5em;
-  max-width: 100%;
-
-  img[class*="wp-image-"] {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-  }
-
-  .wp-caption-text {
-	margin: 0.8075em 0;
-  }
-}
-
-.wp-caption-text {
-  text-align: center;
-}
-
-/* GALLERIES */
-
-.gallery {
-  margin-bottom: 1.5em;
-}
-
-.gallery-item {
-  display: inline-block;
-  text-align: center;
-  vertical-align: top;
-  width: 100%;
-
-  // Loops to enumerate the classes for gallery columns.
-  @for $i from 2 through 9 {
-	.gallery-columns-#{$i} & {
-	  max-width: (100% / $i);
-	}
-  }
-}
-
-.gallery-caption {
-  display: block;
 }

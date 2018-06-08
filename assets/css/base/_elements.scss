@@ -39,6 +39,13 @@ figure {
   margin: 0;
 }
 
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
 /* LINKS */
 a {
   color: $color__link;
@@ -61,7 +68,6 @@ a {
 }
 
 /* LISTS */
-
 ul, ol {
   margin: 0;
   padding: 0;
@@ -84,7 +90,6 @@ dl, dd {
 }
 
 /* TABLES */
-
 table {
   width: 100%;
 }

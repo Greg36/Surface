@@ -1,42 +1,25 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# 0. Settings
-  ## MQ - media query tool
-  ## Mixins
-  ## Functions
-  ## Variables
-# 1. Base
-  ## Normalize
-  ## Elements
-  ## Typography
-  ## Forms
-# 2. Layouts
-  ## Grid
-# 3. Objects
-  ## Media
-# 4. Components
-  ## Comments
-  ## Navigation
-  ## Header
-  ## Sidebar
-  ## Footer
-  ## Widgets
-  ## Content
-# 5. Theme
-# 6. Scope
-# 7. Utilities
-  ## Clearings
-  ## Accessibility
-  ## Alignments
+
+# 0. Settings - Sass variables, mixins and functions
+
+# 1. Base - HTML elements styles
+
+# 2. Layouts - overall layout classes
+
+# 3. Objects - small components reusable across site
+
+# 4. Components - general purpose components
+
+# 5. Theme - classes used purely for styling
+
+# 6. Scope - style override for user generated content
+
+# 7. Utilities - classes used as tools
+
 --------------------------------------------------------------*/
 
-/*
- @todo: refactor html to modular - this needs thinking in terms of "the wordpress way"
- @todo: refactor class names to BEM
- @todo: prefix classes with a- m- o- prefixes
- @todo: think on how to extract the styling to theme
- */
 
 /*------------------------------------*\
   # 0. Settings
@@ -68,9 +51,6 @@
 // Typography
 @import "base/_typography";
 
-// Forms
-@import "base/_forms";
-
 
 /*------------------------------------*\
   # 2. Layouts
@@ -82,12 +62,22 @@
 // Main layouts
 @import "layouts/_main";
 
+
 /*------------------------------------*\
   # 3. Objects
 \*------------------------------------*/
 
 // Media
 @import "objects/media";
+
+// Forms
+@import "objects/forms";
+
+// Navigation
+@import "objects/navigation";
+
+// Content
+@import "objects/content";
 
 
 /*------------------------------------*\
@@ -109,6 +99,9 @@
 // Content
 @import "components/content";
 
+// Entry
+@import "components/entry";
+
 // Sidebar
 @import "components/sidebar";
 
@@ -120,10 +113,16 @@
   # 5. Theme
 \*------------------------------------*/
 
+// Theme
+@import "theme/theme";
+
 
 /*------------------------------------*\
   # 6. Scope
 \*------------------------------------*/
+
+// Content
+@import "scope/content";
 
 
 /*------------------------------------*\

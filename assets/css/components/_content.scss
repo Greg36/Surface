@@ -1,45 +1,9 @@
-/* POSTS AND PAGES */
-.sticky {
-  display: block;
-}
-
-.hentry {
-  margin: 0 0 1.5em;
-}
-
-.byline,
-.updated:not(.published){
-  display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-  display: inline;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-  margin: 1.5em 0 0;
-}
-
-.page-links {
-  clear: both;
-  margin: 0 0 1.5em;
-}
-
-/* ASIDES */
-
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
-  display: none;
-}
-
-/* COMMENTS */
-
-.comment-content a {
-  word-wrap: break-word;
-}
-.bypostauthor {
-  display: block;
+.c-content {
+  &__wrapper {}
+  &__page {}
+  &__posts {}
+  &__single {}
+  &__search {}
+  &__sidebar {}
+  &__404 {}
 }
