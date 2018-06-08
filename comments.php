@@ -20,13 +20,13 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="c-comments-area">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h2 class="c-comments-area__title">
 			<?php
 			$_s_comment_count = get_comments_number();
 			if ( '1' === $_s_comment_count ) {
@@ -46,24 +46,25 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
+		<?php echo _s_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ol class="c-comments-area__list">
 			<?php
 			wp_list_comments( array(
 				'style'      => 'ol',
 				'short_ping' => true,
+				'walker'     => new _s_Walker_Comment()
 			) );
 			?>
 		</ol><!-- .comment-list -->
 
 		<?php
-		the_comments_navigation();
+		echo _s_comments_navigation();
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
+			<p class="c-comments-area__no-comments"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
 			<?php
 		endif;
 

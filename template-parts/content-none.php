@@ -9,12 +9,12 @@
 
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', '_s' ); ?></h1>
+<section class="c-not-found c-page">
+	<header class="c-not-found__header">
+		<h1 class="c-not-found__title"><?php esc_html_e( 'Nothing Found', '_s' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="c-not-found__content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 

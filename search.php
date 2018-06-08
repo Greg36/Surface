@@ -10,45 +10,50 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary" class="c-content__wrapper c-content__search">
+		<main id="main" class="l-main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
+				<section class="c-search">
+					<header class="c-search__header">
+						<h1 class="c-search__title">
+							<?php
+							/* translators: %s: search query. */
+							printf( esc_html__( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' );
+							?>
+						</h1>
+					</header><!-- .page-header -->
+
 					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' );
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
+
+						/**
+						 * Run the loop for the search to output the results.
+						 * If you want to overload this in a child theme then include a file
+						 * called content-search.php and that will be used instead.
+						 */
+						get_template_part( 'template-parts/content', 'excerpt' );
+
+					endwhile;
+
+					the_posts_navigation();
+
 					?>
-				</h1>
-			</header><!-- .page-header -->
-
+				</section>
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+			else :
 
-			endwhile;
+				get_template_part( 'template-parts/content', 'none' );
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			endif;
+			?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div><!-- #primary -->
 
 <?php
 get_sidebar();

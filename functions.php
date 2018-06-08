@@ -148,6 +148,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Generating dynamic sytles.
+ * Generating dynamic styles.
  */
 require get_template_directory() . '/inc/dynamic-styles.php';
+
+/**
+ * Changes in core class names to match BEM syntax stricture
+ */
+require get_template_directory() . '/inc/bem.php';

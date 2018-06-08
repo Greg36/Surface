@@ -9,26 +9,26 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'c-page' ); ?>>
+	<header class="c-page__header">
+		<?php the_title( '<h1 class="c-page__title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php _s_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="c-page__content s-page-content">
 		<?php
 		the_content();
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
+			'before' => '<div class="c-page-links">' . esc_html__( 'Pages:', '_s' ),
 			'after'  => '</div>',
 		) );
 		?>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
+		<footer class="c-page__footer">
 			<?php
 			edit_post_link(
 				sprintf(
@@ -43,7 +43,7 @@
 					),
 					get_the_title()
 				),
-				'<span class="edit-link">',
+				'<span class="o-edit-link">',
 				'</span>'
 			);
 			?>
