@@ -7,7 +7,7 @@
 
 export default class Navigation {
 	constructor() {
-		this.container = document.getElementById( 'site-navigation' );
+		this.container = document.querySelector( '.js-main-navigation' );
 		this.button = this.container.getElementsByTagName( 'button' )[0];
 		this.menu = this.container.getElementsByTagName( 'ul' )[0];
 	}
@@ -26,18 +26,18 @@ export default class Navigation {
 
 		// Have menu closed by default
 		this.menu.setAttribute( 'aria-expanded', 'false' );
-		if ( -1 === this.menu.className.indexOf( 'nav-menu' ) ) {
-			this.menu.className += ' nav-menu';
+		if ( -1 === this.menu.className.indexOf( 'u-nav-menu' ) ) {
+			this.menu.className += ' u-nav-menu';
 		}
 
 		// Toggle mobile navigation
 		this.button.onclick = () => {
-			if ( -1 !== this.container.className.indexOf( 'toggled' ) ) {
-				this.container.className = this.container.className.replace( ' toggled', '' );
+			if ( -1 !== this.container.className.indexOf( 'is-toggled' ) ) {
+				this.container.className = this.container.className.replace( ' is-toggled', '' );
 				this.button.setAttribute( 'aria-expanded', 'false' );
 				this.menu.setAttribute( 'aria-expanded', 'false' );
 			} else {
-				this.container.className += ' toggled';
+				this.container.className += ' is-toggled';
 				this.button.setAttribute( 'aria-expanded', 'true' );
 				this.menu.setAttribute( 'aria-expanded', 'true' );
 			}
@@ -50,12 +50,11 @@ export default class Navigation {
 	 * Allow keyboard users to use multi-level navigation
 	 */
 	navAccessibilitySupport() {
-	// Get all the link elements within the menu.
+		// Get all the link elements within the menu.
 		const links = this.menu.getElementsByTagName( 'a' );
 
-		// @todo test if this is working
 		// Each time a menu link is focused or blurred, toggle focus.
-		links.forEach( ( link ) => {
+		Array.from( links ).forEach( ( link ) => {
 			link.addEventListener( 'focus', link.toggleFocus, true );
 			link.addEventListener( 'blur', link.toggleFocus, true );
 		} );
@@ -96,8 +95,8 @@ export default class Navigation {
 	toggleFocus() {
 		let self = this;
 
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+		// Move up through the ancestors of the current link until we hit .u-nav-menu.
+		while ( -1 === self.className.indexOf( 'u-nav-menu' ) ) {
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				if ( -1 !== self.className.indexOf( 'focus' ) ) {
