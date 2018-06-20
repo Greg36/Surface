@@ -1,9 +1,9 @@
 paths:
-    tests: tests/php
-    log: tmp/_output
-    data: tmp/_data
-    support: tests/php/_support
-    envs: tmp/_envs
+    tests: tests\php
+    log: tmp\_output
+    data: tmp\_data
+    support: tests\php\_support
+    envs: tmp\_envs
 actor_suffix: Tester
 extensions:
     enabled:
@@ -19,4 +19,4 @@ extensions:
         - Codeception\Command\DbSnapshot
         - tad\Codeception\Command\SearchReplace
 params:
-    - tests/php/env.yml
+    - tests\php\env.yml

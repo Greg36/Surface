@@ -1,0 +1,16 @@
+{
+  "name": "_/_s",
+  "description": "Underscores starter theme",
+  "type": "wordpress-theme",
+  "license": "GNUv2",
+  "authors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "lucatume/wp-browser": "~1.21"
+  }
+}

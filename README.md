@@ -1,5 +1,5 @@
 # Underscores
-Underscores is WordPress starter theme based on [_s](https://github.com/Automattic/_s) upgraded with many features for development. It supports **Sass**, **ES6**, **HMR** (aka instant live reload) along with full suit of testing frameworks.
+Underscores is WordPress starter theme based on Automattic's [_s](https://github.com/Automattic/_s) upgraded with many features for development. It supports **Sass**, **ES6**, **HMR** (aka instant live reload) along with full suit of testing frameworks PHP and JS.
 
 Theme itself is still organized in "the WordPress way" and suitable for [WordPress.org](http://wordpress.org/) theme development.
 
@@ -15,15 +15,20 @@ Webpack config is based on [Sage](https://github.com/roots/sage) starter theme.
 * [Sinon](http://sinonjs.org/) JS unit mocking library
 * [BackstopJS](https://garris.github.io/BackstopJS/) visual regression tester
 
+#### BEM support
+
+In form of a separate branch I included a refactor of CSS with BEM syntax support and [partial](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) ITCSS styles organization. 
+
 ## Setup
 Download `Underscores` from Github and rename the main folder to your brand new theme name i.e. my-new-theme.
-To setup theme you will need to rename default strings in theme to match your new theme name.
+To setup theme you will need to rename default strings across theme files to match your new theme name either using included script or manually.
 
 #### Automatic
 
-You can setup theme automatically by running this command in theme's directory:
+You can setup theme automatically by installing NPM dependencies and running this command in theme's directory:
 
 ```
+yarn install
 node setup.js
 ```
 
@@ -47,22 +52,22 @@ node setup.js
 To start developing install NPM dependencies and start watching files:
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 ```
 
-If you are using sub-directory to host this site i.e. `http://localhost/supertheme` change  `proxyUrl` in `config.json` file to just `http://localhost:3000` including port number. 
+If you are using sub-directory to host this site i.e. `http://localhost/supertheme` change  `proxyUrl` in `config.json` file to just `http://localhost:3000` including the port number. 
 
 ## Testing
 
 All major test cases are covered:
 
-* **JS unit** tests - Chai, Sinon, Mocha testing stack run on Karma with Chrome and Firefox headless setup by default,
+* **JS unit** tests - Chai, Sinon, Mocha testing stack running on Karma with Chrome and Firefox headless setup by default,
 * **PHP unit** tests - Codeception unit suit powered by [PHPUnit](https://phpunit.de/),
 * **Integration** tests - Codeception wpunit suit that implements [WP Core automated suite](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/) of helpful fixtures and factories,
 * **Functional** tests - Codeception functional suit that emulates and process requests without need to run a web server,
-* **Acceptance** tests - Codeception acceptance suit tests with non-javascript browser (WebDriver solution can also be configured),
-* **Visual regression** tests - BackstopJS framework for automatic comparision of DOM screenshots over time.
+* **Acceptance** tests - Codeception acceptance suit tests with non-javascript browser (WebDriver solution can easily be configured),
+* **Visual regression** tests - BackstopJS framework for automatic comparision of DOM elements screenshots.
 
 ### Codeception
 
@@ -70,15 +75,15 @@ You can learn how to use Codeception for WordPress in [the official guide](http:
 
 #### Setup
 
-To install Codeception with [wp-browser](https://github.com/lucatume/wp-browser) extension use [Composer](https://getcomposer.org/), the wp-browser package already contains Codeception so require just one dependency: 
+To install Codeception with [wp-browser](https://github.com/lucatume/wp-browser) extension use [Composer](https://getcomposer.org/), the wp-browser package already contains Codeception so we install just one dependency: 
 
 ```
-composer require lucatume/wp-browser --dev
+composer install
 ```
 
-Before using Codeception you need to update its settings. For default setup update variables in `tests/php/env.yml` file. For option `DB_Test_Name` create new empty database, don't use the one running WordPress.
+Before using Codeception you need to update its settings. For default setup update variables in `tests/php/env.yml` file. For option `DB_Test_Name` create new empty database, it will be cleared between tests so **don't use** the one running WordPress.
 
-Functional and acceptance tests requires WordPress database dump to run. Place it in `tmp/_data/dump.sql`.
+Functional and acceptance tests requires WordPress [database dump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) file to run. Place it in `tmp/_data/dump.sql`.
 
 Check [wp-browser documentation](https://github.com/lucatume/wp-browser#modules) for more in-depth info on setup and configuration.
 
@@ -89,21 +94,21 @@ Karma setup works without any configuration, only requirements are Firefox versi
 To run Karma tests:
 
 ```
-npm run test
+yarn run test
 ```
 
 ### Visual regression testing
 
-BackstopJS takes screenshots of DOM in selected viewports configured in `assets/build/backstop.json` and compares them between reference and test case. It requires Chrome version 59 or above.
+BackstopJS takes screenshots of specified DOM elements in selected viewports configured in `assets/build/backstop.json` and compares them between reference and test case. It requires Chrome version 59 or above.
 
 To take reference screenshots:
 
 ```
-npm run visual:ref
+yarn run visual:ref
 ```
 
 To take another sample and run comparision:
 
 ```
-npm run visual:test
+yarn run visual:test
 ```
