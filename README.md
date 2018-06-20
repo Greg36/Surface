@@ -15,6 +15,10 @@ Webpack config is based on [Sage](https://github.com/roots/sage) starter theme.
 * [Sinon](http://sinonjs.org/) JS unit mocking library
 * [BackstopJS](https://garris.github.io/BackstopJS/) visual regression tester
 
+#### BEM support
+
+In form of a separate branch I included a refactor of CSS with BEM syntax support and [partial](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) ITCSS styles organization. 
+
 ## Setup
 Download `Underscores` from Github and rename the main folder to your brand new theme name i.e. my-new-theme.
 To setup theme you will need to rename default strings in theme to match your new theme name.
