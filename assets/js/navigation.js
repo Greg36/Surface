@@ -53,12 +53,11 @@ export default class Navigation {
 	// Get all the link elements within the menu.
 		const links = this.menu.getElementsByTagName( 'a' );
 
-		// @todo test if this is working
 		// Each time a menu link is focused or blurred, toggle focus.
-		links.forEach( ( link ) => {
-			link.addEventListener( 'focus', link.toggleFocus, true );
-			link.addEventListener( 'blur', link.toggleFocus, true );
-		} );
+		for (let i = 0; i < links.length; i++) {
+			links[i].addEventListener( 'focus', links[i].toggleFocus, true );
+			links[i].addEventListener( 'blur', links[i].toggleFocus, true );
+		}
 	}
 
 	/**
