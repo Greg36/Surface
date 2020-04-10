@@ -17,7 +17,7 @@ Webpack config is based on [Sage](https://github.com/roots/sage) starter theme.
 
 #### BEM support
 
-In form of a separate branch I included a refactor of CSS with BEM syntax support and [partial](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) ITCSS styles organization. 
+In form of a separate branch I included a refactor of CSS with BEM syntax support and [partial](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) ITCSS styles organization.
 
 ## Setup
 Download `Underscores` from Github and rename the main folder to your brand new theme name i.e. my-new-theme.
@@ -56,7 +56,7 @@ yarn install
 yarn start
 ```
 
-If you are using sub-directory to host this site i.e. `http://localhost/supertheme` change  `proxyUrl` in `config.json` file to just `http://localhost:3000` including the port number. 
+If you are using sub-directory to host this site i.e. `http://localhost/supertheme` change  `proxyUrl` in `config.json` file to just `http://localhost:3000` including the port number.
 
 ## Testing
 
@@ -71,11 +71,11 @@ All major test cases are covered:
 
 ### Codeception
 
-You can learn how to use Codeception for WordPress in [the official guide](http://codeception.com/for/wordpress). 
+You can learn how to use Codeception for WordPress in [the official guide](http://codeception.com/for/wordpress).
 
 #### Setup
 
-To install Codeception with [wp-browser](https://github.com/lucatume/wp-browser) extension use [Composer](https://getcomposer.org/), the wp-browser package already contains Codeception so we install just one dependency: 
+To install Codeception with [wp-browser](https://github.com/lucatume/wp-browser) extension use [Composer](https://getcomposer.org/), the wp-browser package already contains Codeception so we install just one dependency:
 
 ```
 composer install
@@ -99,16 +99,16 @@ yarn run test
 
 ### Visual regression testing
 
-BackstopJS takes screenshots of specified DOM elements in selected viewports configured in `assets/build/backstop.json` and compares them between reference and test case. It requires Chrome version 59 or above.
+BackstopJS takes screenshots of specified DOM elements in selected viewports configured in `assets/build/backstop.json` and compares them between approved reference and new test case.
 
-To take reference screenshots:
-
-```
-yarn run visual:ref
-```
-
-To take another sample and run comparision:
+The workflow consists of running tests and approving the results as the future reference. To run test:
 
 ```
 yarn run visual:test
+```
+
+When test fail, we can approve its results as the new reference:
+
+```
+yarn run visual:approve
 ```

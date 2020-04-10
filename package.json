@@ -36,7 +36,7 @@
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^7.1.4",
-    "backstopjs": "^3.0.25",
+    "backstopjs": "^4.5.1",
     "browser-sync": "^2.17.5",
     "browsersync-webpack-plugin": "^0.6.0",
     "buble-loader": "^0.4.1",
@@ -69,8 +69,8 @@
     "node-wp-i18n": "^1.0.1",
     "postcss-loader": "^2.0.6",
     "postcss-safe-parser": "^3.0.1",
+    "puppeteer": "^2.1.1",
     "replace-in-file": "^3.0.0-beta.2",
-    "puppeteer": "^0.13.0",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "sinon": "^4.1.2",
@@ -91,8 +91,8 @@
     "lint": "eslint assets/js",
     "test": "karma start assets/build/karma.conf.js",
     "makepot": "wpi18n makepot --domain-path assets/languages --pot-file en_US.pot",
-    "visual:ref": "backstop --configPath=assets/build/backstop.json reference",
-    "visual:test": "backstop --configPath=assets/build/backstop.json test"
+    "visual:test": "backstop --configPath=assets/build/backstop.json test",
+    "visual:approve": "backstop --configPath=assets/build/backstop.json approve"
   },
   "author": "",
   "license": "GPL"
