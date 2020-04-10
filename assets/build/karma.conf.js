@@ -19,13 +19,11 @@ module.exports = function( config ) {
 		// list of files / patterns to load in the browser
 		// each file acts as entry point for the webpack configuration
 		files: [
-			{pattern: 'tests/js/*_test.js', watched: false},
 			{pattern: 'tests/js/**/*_test.js', watched: false}
 		],
 
 		// preprocess matching files before serving them to the browser
 		preprocessors: {
-			'tests/js/*_test.js': ['webpack'],
 			'tests/js/**/*_test.js': ['webpack']
 		},
 
