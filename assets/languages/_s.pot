@@ -1,43 +1,43 @@
-# <!=Copyright (C) 2020 Automattic
+# <!=Copyright (C) 2020 Grzegorz Niedzielski
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-09-16 21:41:38+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/Underscores\n"
+"POT-Creation-Date: 2020-04-11 20:26:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: node-wp-i18n 1.0.2\n"
+"X-Generator: node-wp-i18n 1.2.3\n"
 
-#: 404.php:17
+#: 404.php:18
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:21
+#: 404.php:22
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the "
 "links below or a search?"
 msgstr ""
 
-#: 404.php:30
+#: 404.php:31
 msgid "Most Used Categories"
 msgstr ""
 
-#: 404.php:47
+#: 404.php:48
 #. translators: %1$s: smiley
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: comments.php:34
+#: comments.php:35
 #. translators: 1: title.
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: comments.php:63
+#: comments.php:68
 msgid "Comments are closed."
 msgstr ""
 
@@ -45,84 +45,76 @@ msgstr ""
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:20
+#: footer.php:21
 #. translators: %s: CMS name, i.e. WordPress.
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:25
+#: footer.php:27
 #. translators: 1: Theme name, 2: Theme author.
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:47
+#: functions.php:48
 msgid "Primary"
 msgstr ""
 
-#: functions.php:105
+#: functions.php:120
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:107
+#: functions.php:122
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:24
+#: header.php:26
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:45
+#: header.php:49
 msgid "Primary Menu"
 msgstr ""
 
-#: inc/template-tags.php:52
+#: inc/template-tags.php:62
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:55
+#: inc/template-tags.php:65
 #. translators: 1: list of categories.
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:62
+#: inc/template-tags.php:72
 #. translators: 1: list of tags.
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
+#: inc/template-tags.php:82
 #. translators: %s: post title
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:89 template-parts/content-page.php:35
+#: inc/template-tags.php:99 template-parts/content-page.php:37
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: search.php:21
+#: search.php:22
 #. translators: %s: search query.
 msgid "Search Results for: %s"
-msgstr ""
-
-#: single.php:21
-msgid "Previous:"
-msgstr ""
-
-#: single.php:22
-msgid "Next:"
 msgstr ""
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:25
+#: template-parts/content-none.php:24
 #. translators: 1: link to WP admin new post page.
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:38
+#: template-parts/content-none.php:37
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -134,11 +126,11 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22 template-parts/content.php:45
+#: template-parts/content-page.php:24 template-parts/content.php:53
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content.php:34
+#: template-parts/content.php:40
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
@@ -159,7 +151,7 @@ msgstr ""
 msgid "Grzegorz Niedzielski"
 msgstr ""
 
-#: comments.php:40
+#: comments.php:41
 #. translators: 1: comment count number, 2: title.
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
@@ -173,13 +165,13 @@ msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:35
+#: inc/template-tags.php:45
 #. translators: %s: post author.
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:59
+#: inc/template-tags.php:69
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "

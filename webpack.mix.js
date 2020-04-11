@@ -58,6 +58,9 @@ const distPath = 'dist';
  */
 mix.setPublicPath( 'dist' );
 
+
+mix.disableSuccessNotifications();
+
 /*
  * Set Laravel Mix options.
  *

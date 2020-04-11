@@ -2,7 +2,7 @@
  * Karma test runner configuration used for JavaScript unit testing.
 */
 
-const webpackConfig = require( './webpack.config.js' );
+const webpackConfig = require( '../../node_modules/laravel-mix/setup/webpack.config.js' );
 
 // Chrome headless setup with Puppeteer
 process.env.CHROME_BIN = require('puppeteer').executablePath();

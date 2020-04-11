@@ -17,7 +17,7 @@
   "scenarios": [
     {
       "label": "Header",
-      "cookiePath": "assets/build/util/cookies.json",
+      "cookiePath": "assets/build/cookies.json",
       "url": "http://localhost/sandbox",
       "referenceUrl": "",
       "readyEvent": "",
@@ -40,7 +40,7 @@
   "paths": {
     "bitmaps_reference": "tmp/backstop_data/bitmaps_reference",
     "bitmaps_test": "tmp/backstop_data/bitmaps_test",
-    "engine_scripts": "assets/build/util",
+    "engine_scripts": "assets/build",
     "html_report": "tmp/backstop_data/html_report",
     "ci_report": "tmp/backstop_data/ci_report"
   },
