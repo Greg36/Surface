@@ -18,7 +18,7 @@
 
 	<!-- Pass some flags to PHPCS:
 		 p flag: Show progress of the run.
-		 s flag: Show sniff codes in all reports.
+		 s flag: Show sniff codes in all reports.Ś
 		 v flag: Print verbose output.
 		 n flag: Do not print warnings.
 	-->
@@ -39,6 +39,7 @@
 	<!-- Exclude patterns. -->
 	<exclude-pattern>/vendor/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/tests/*</exclude-pattern>
 
 
 	<!--
@@ -50,6 +51,11 @@
 	<rule ref="WordPress">
 		<!-- This rule does not apply here since the _s prefix should be changed by the theme author. -->
 		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+		<exclude name="Generic.Files.LineEndings.InvalidEOLChar"/>
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion"/>
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion"/>
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found"/>
+		<exclude name="PHPCompatibility.Syntax.NewShortArray.Found"/>
 	</rule>
 	<rule ref="WPThemeReview"/>
 

@@ -135,6 +135,10 @@ add_action( 'widgets_init', '_s_widgets_init' );
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/dist/css/style.css' );
 
+	// Include our dynamic styles.
+	$custom_css = _s_dynamic_styles();
+	wp_add_inline_style( '_s-style', $custom_css );
+
 	wp_enqueue_script( '_s-app', get_template_directory_uri() . '/dist/js/main.js', array(), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

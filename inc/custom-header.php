@@ -22,12 +22,12 @@ function _s_custom_header_setup() {
 		apply_filters(
 			'_s_custom_header_args',
 			array(
-				'default-image'          => '',
-				'default-text-color'     => '000000',
-				'width'                  => 1000,
-				'height'                 => 250,
-				'flex-height'            => true,
-				'wp-head-callback'       => '_s_header_style',
+				'default-image'      => '',
+				'default-text-color' => '000000',
+				'width'              => 1000,
+				'height'             => 250,
+				'flex-height'        => true,
+				'wp-head-callback'   => '_s_header_style',
 			)
 		)
 	);
@@ -63,8 +63,8 @@ if ( ! function_exists( '_s_header_style' ) ) :
 				position: absolute;
 				clip: rect(1px, 1px, 1px, 1px);
 			}
-		<?php
-		// If the user has set a custom color for the text use that.
+			<?php
+			// If the user has set a custom color for the text use that.
 		else :
 			?>
 			.site-title a,

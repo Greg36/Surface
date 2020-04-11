@@ -1,15 +1,20 @@
 <?php
 /**
  * Styles generated based on customizer options.
+ *
+ * @package _s
  */
 
 /**
  * Make an array that is [selector][property] = value and parse it to CSS syntax
  */
-
 function _s_dynamic_styles() {
 
-	$css = [];
+	$css = [
+		'body' => [
+			'background' => '#f00',
+		],
+	];
 
 	/* Parse array to CSS syntax string */
 	$final_css = '';
@@ -21,7 +26,5 @@ function _s_dynamic_styles() {
 		$final_css .= '}';
 	}
 
-	echo '<style type="text/css">' . $final_css . '</style>';
+	return $final_css;
 }
-
-add_action( 'wp_head', '_s_dynamic_styles', 99 );
