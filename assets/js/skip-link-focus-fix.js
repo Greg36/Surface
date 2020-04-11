@@ -10,12 +10,12 @@ export default function skipLinkFocus() {
 
 	if ( isIe && document.getElementById && window.addEventListener ) {
 		window.addEventListener( 'hashchange', () => {
-			const id = location.hash.substring( 1 ),
-				element = document.getElementById( id );
+			const id = location.hash.substring( 1 );
 
 			if ( ! /^[A-z0-9_-]+$/.test( id ) ) {
 				return;
 			}
+			const element = document.getElementById( id );
 
 			if ( element ) {
 				if ( ! /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) {

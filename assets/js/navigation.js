@@ -8,8 +8,8 @@
 export default class Navigation {
 	constructor() {
 		this.container = document.getElementById( 'site-navigation' );
-		this.button = this.container.getElementsByTagName( 'button' )[0];
-		this.menu = this.container.getElementsByTagName( 'ul' )[0];
+		this.button = this.container.getElementsByTagName( 'button' )[ 0 ];
+		this.menu = this.container.getElementsByTagName( 'ul' )[ 0 ];
 	}
 
 	setupNavigation() {
@@ -55,8 +55,8 @@ export default class Navigation {
 
 		// Each time a menu link is focused or blurred, toggle focus.
 		for (let i = 0; i < links.length; i++) {
-			links[i].addEventListener( 'focus', links[i].toggleFocus, true );
-			links[i].addEventListener( 'blur', links[i].toggleFocus, true );
+			links[ i ].addEventListener( 'focus', links[ i ].toggleFocus, true );
+			links[ i ].addEventListener( 'blur', links[ i ].toggleFocus, true );
 		}
 	}
 
@@ -73,8 +73,8 @@ export default class Navigation {
 				if ( ! menuItem.classList.contains( 'focus' ) ) {
 					e.preventDefault();
 					for ( let i = 0; i < menuItem.parentNode.children.length; ++i ) {
-						if ( menuItem !== menuItem.parentNode.children[i] ) {
-							menuItem.parentNode.children[i].classList.remove( 'focus' );
+						if ( menuItem !== menuItem.parentNode.children[ i ] ) {
+							menuItem.parentNode.children[ i ].classList.remove( 'focus' );
 						}
 					}
 					menuItem.classList.add( 'focus' );
@@ -84,7 +84,7 @@ export default class Navigation {
 			};
 
 			for ( let i = 0; i < parentLink.length; ++i ) {
-				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+				parentLink[ i ].addEventListener( 'touchstart', touchStartFn, false );
 			}
 		}
 	}

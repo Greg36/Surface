@@ -20,6 +20,7 @@
 	"sourceType": "module"
   },
   "rules": {
+	"linebreak-style": [0, "error", "windows"],
 	"space-in-parens": 0,
 	"wrap-iife": 0
   }
