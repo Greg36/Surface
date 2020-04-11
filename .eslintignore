@@ -1,2 +1,3 @@
 tests/js/*.js
 assets/build/*.js
+webpack.*.js

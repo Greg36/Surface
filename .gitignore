@@ -2,7 +2,7 @@
 node_modules
 .sass-cache
 tmp
-build
+dist
 assets/languages/en_US.mo
 !/assets/build/
 .cache-loader

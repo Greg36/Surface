@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "extends": [ "plugin:@wordpress/eslint-plugin/recommended-with-formatting" ],
+  "globals": {
+	"wp": "readonly"
+  },
+  "env": {
+	"browser": true,
+	"es6": true,
+	"jquery": true
+  },
+  "plugins": [
+	"import"
+  ],
+  "settings": {
+	"import/core-modules": [],
+	"import/ignore": ["node_modules", "\\.(coffee|scss|css|less|hbs|svg|json)$"]
+  },
+  "parserOptions": {
+	"sourceType": "module"
+  },
+  "rules": {
+	"space-in-parens": 0,
+	"wrap-iife": 0
+  }
+}
