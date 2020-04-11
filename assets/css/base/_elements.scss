@@ -3,97 +3,101 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 
 body {
-  background: $color__background-body; // Fallback for when there is no custom background color defined.
+	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
-blockquote, q {
-  quotes: "" "";
+blockquote,
+q {
+	quotes: "" "";
 
-  &::before,
-  &::after {
-    content: "";
-  }
+	&::before,
+	&::after {
+		content: "";
+	}
 }
 
 hr {
-  background-color: $color__background-hr;
-  border: 0;
-  height: 1px;
-  margin-bottom: 1.5em;
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
 }
 
 img {
-  height: auto; // Make sure images are scaled correctly.
-  max-width: 100%; // Adhere to container width.
+	height: auto; // Make sure images are scaled correctly.
+	max-width: 100%; // Adhere to container width.
 }
 
 figure {
-  margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+	margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
 }
 
 
 /* LINKS */
 a {
-  color: $color__link;
+	color: $color__link;
 
-  &:visited {
-    color: $color__link-visited;
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    color: $color__link-hover;
-  }
-  &:focus {
-    outline: thin dotted;
-  }
-  &:hover,
-  &:active {
-    outline: 0;
-  }
+	&:visited {
+		color: $color__link-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
 }
 
 /* LISTS */
 
 ul,
 ol {
-  margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 3em;
 }
 
 ul {
-  list-style: disc;
+	list-style: disc;
 }
 
 ol {
-  list-style: decimal;
+	list-style: decimal;
 }
 
 li > ul,
 li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
+	margin-bottom: 0;
+	margin-left: 1.5em;
 }
 
 dt {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 dd {
-  margin: 0 1.5em 1.5em;
+	margin: 0 1.5em 1.5em;
 }
 
 /* TABLES */
 
 table {
-  margin: 0 0 1.5em;
-  width: 100%;
+	margin: 0 0 1.5em;
+	width: 100%;
 }
