@@ -3,21 +3,26 @@
 class SampleWpunitTest extends \Codeception\TestCase\WPTestCase
 {
 
-    public function setUp()
-    {
-        // before
-        parent::setUp();
+	/**
+	 * @var \WpunitTester
+	 */
+	protected $tester;
 
-        // your set up methods here
-    }
+	public function setUp(): void
+	{
+		// Before...
+		parent::setUp();
 
-    public function tearDown()
-    {
-        // your tear down methods here
+		// Your set up methods here.
+	}
 
-        // then
-        parent::tearDown();
-    }
+	public function tearDown(): void
+	{
+		// Your tear down methods here.
+
+		// Then...
+		parent::tearDown();
+	}
 
     // Test WP core function
 	public function test_escapingHtml() {

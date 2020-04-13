@@ -1,9 +1,9 @@
 paths:
     tests: tests\php
-    log: tmp\_output
-    data: tmp\_data
+    log: tmp\codeception\_output
+    data: tmp\codeception\_data
     support: tests\php\_support
-    envs: tmp\_envs
+    envs: tests\php
 actor_suffix: Tester
 extensions:
     enabled:
@@ -16,7 +16,5 @@ extensions:
         - Codeception\Command\GenerateWPAjax
         - Codeception\Command\GenerateWPCanonical
         - Codeception\Command\GenerateWPXMLRPC
-        - Codeception\Command\DbSnapshot
-        - tad\Codeception\Command\SearchReplace
 params:
-    - tests\php\env.yml
+    - tests\php\.env.testing

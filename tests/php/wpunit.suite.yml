@@ -2,24 +2,29 @@
 #
 # Suite for unit or integration tests that require WordPress functions and classes.
 
+# Codeception Test Suite Configuration
+#
+# Suite for unit or integration tests that require WordPress functions and classes.
+
 actor: WpunitTester
 modules:
-    enabled:
-        - WPLoader
-        - \Helper\Wpunit
-    config:
-        WPLoader:
-            loadOnly: false
-            wpRootFolder: %WP_RootFolder%
-            dbName: %DB_Test_Name%
-            dbHost:  %DB_Host%
-            dbUser: %DB_User%
-            dbPassword: %DB_Pass%
-            tablePrefix: 'wp_'
-            domain: %WP_Domain%
-            adminEmail: 'admin@localhost'
-            title: 'Test'
-            theme: 'underscores'
+  enabled:
+    - WPLoader
+    - \Helper\Wpunit
+  config:
+    WPLoader:
+      wpRootFolder: "%WP_ROOT_FOLDER%"
+      dbName: "%TEST_DB_NAME%"
+      dbHost: "%TEST_DB_HOST%"
+      dbUser: "%TEST_DB_USER%"
+      dbPassword: "%TEST_DB_PASSWORD%"
+      tablePrefix: "%TEST_TABLE_PREFIX%"
+      domain: "%TEST_SITE_WP_DOMAIN%"
+      adminEmail: "%TEST_SITE_ADMIN_EMAIL%"
+      title: "Test WpBrowser"
+      theme: underscores
+      plugins: ['']
+      activatePlugins: ['']
 env:
     gitlab:
         modules:

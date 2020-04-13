@@ -1,41 +1,51 @@
 # Codeception Test Suite Configuration
-
-# Suite for WordPress functional tests.
-# Emulate web requests and make the WordPress application process them.
+#
+# Suite for functional tests
+# Emulate web requests and make WordPress process them
 
 
 actor: FunctionalTester
 modules:
-    enabled:
-        - WPDb
-        - WordPress
-        - Asserts
-        - \Helper\Functional
-    config:
-        WPDb:
-            dsn: 'mysql:host=%DB_Host%;dbname=%DB_Name%'
-            user: %DB_User%
-            password: %DB_Pass%
-            dump: 'tmp/_data/dump.sql'
-            populate: true
-            cleanup: true
-            reconnect: false
-            url: %WP_URL%
-            urlReplacement: true
-            tablePrefix: wp_
-        WordPress:
-            depends: WPDb
-            wpRootFolder: %WP_RootFolder%
-            adminUsername: 'admin'
-            adminPassword: '1234'
-            adminPath: '/wp-admin'
+  enabled:
+    - WPDb
+    - WPBrowser
+    # - WPFilesystem
+    - Asserts
+    - \Helper\Functional
+  config:
+    WPDb:
+      dsn: 'mysql:host=%TEST_SITE_DB_HOST%;dbname=%TEST_SITE_DB_NAME%'
+      user: '%TEST_SITE_DB_USER%'
+      password: '%TEST_SITE_DB_PASSWORD%'
+      dump: 'tmp/codeception/_data/dump.sql'
+      populate: true
+      cleanup: true
+      waitlock: 10
+      url: '%TEST_SITE_WP_URL%'
+      urlReplacement: true
+      tablePrefix: '%TEST_SITE_TABLE_PREFIX%'
+    WPBrowser:
+      url: '%TEST_SITE_WP_URL%'
+      adminUsername: '%TEST_SITE_ADMIN_USERNAME%'
+      adminPassword: '%TEST_SITE_ADMIN_PASSWORD%'
+      adminPath: '%TEST_SITE_WP_ADMIN_PATH%'
+      headers:
+        X_TEST_REQUEST: 1
+        X_WPBROWSER_REQUEST: 1
+
+    WPFilesystem:
+      wpRootFolder: '%WP_ROOT_FOLDER%'
+      plugins: '/wp-content/plugins'
+      mu-plugins: '/wp-content/mu-plugins'
+      themes: '/wp-content/themes'
+      uploads: '/wp-content/uploads'
 env:
-    gitlab:
-        modules:
-            config:
-                WPDb:
-                    dsn: 'mysql:host=mysql;dbname=wordpress;'
-                    password: secret
-                    url: 'http://localhost'
-                WordPress:
-                    wpRootFolder: '/var/www/html'
+  gitlab:
+    modules:
+      config:
+        WPDb:
+          dsn: 'mysql:host=mysql;dbname=wordpress;'
+          password: secret
+          url: 'http://localhost'
+        WordPress:
+          wpRootFolder: '/var/www/html'
