@@ -18,7 +18,7 @@
     {
       "label": "Header",
       "cookiePath": "assets/build/cookies.json",
-      "url": "http://localhost/sandbox",
+      "url": "__url__",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",

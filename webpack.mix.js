@@ -7,9 +7,7 @@
  *
  * @link https://laravel.com/docs/5.6/mix
  *
- * @package   Mythic
- * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright 2018 Justin Tadlock
+ * @package   justintadlock/mythic
  * @link      https://themehybrid.com/themes/mythic
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  */

@@ -22,7 +22,9 @@ function renameTheme( names ) {
 			'./**/*.php',
 			'./assets/build/*.json',
 			'./*.css',
-			'./*.json'
+			'./*.json',
+			'./webpack.*.js',
+			'./tests/php/*.yml',
 		],
 		from: [
 			/'_s'/g,

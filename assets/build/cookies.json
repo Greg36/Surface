@@ -1,6 +1,6 @@
 [
   {
-    "domain": ".www.yourdomain.com",
+    "domain": "__url__",
     "path": "/",
     "name": "yourCookieName",
     "value": "yourCookieValue",

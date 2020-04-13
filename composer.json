@@ -1,17 +1,11 @@
 {
   "name": "_/_s",
-  "description": "Underscores starter theme",
+  "description": "",
   "type": "wordpress-theme",
   "license": "GPL-2.0-or-later",
   "keywords": [
     "WordPress",
     "Themes"
-  ],
-  "authors": [
-    {
-      "name": "Theme Author",
-      "email": "author@email.org"
-    }
   ],
   "require": {
     "php": ">=5.6"
