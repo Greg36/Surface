@@ -1,5 +1,5 @@
-# Underscores
-Underscores is WordPress starter theme based on [Automattic's _s](https://github.com/Automattic/_s) upgraded with many features for development. It supports **Sass**, **ES6**, **HMR** (aka instant live reload) along with full suit of testing frameworks PHP and JS.
+# Surface
+Surface is WordPress starter theme based on [Automattic's _s](https://github.com/Automattic/_s) upgraded with many features for development. It supports **Sass**, **ES6**, **HMR** (aka instant live reload) along with full suit of testing frameworks PHP and JS.
 
 Theme itself is still organized in "the WordPress way" and suitable for [WordPress.org](http://wordpress.org/) theme development.
 
@@ -22,7 +22,7 @@ Webpack config is based on [Mythic](https://github.com/justintadlock/mythic) sta
 In form of a separate branch I included a refactor of CSS with BEM syntax support and [partial](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) ITCSS styles organization.
 
 ## Setup
-Download `Underscores` from Github and rename the main folder to your brand new theme name i.e. my-new-theme.
+Download `Surface` from Github and rename the main folder to your brand new theme name i.e. my-new-theme.
 To setup theme you will need to rename default strings across theme files to match your new theme name either using included script or manually.
 
 #### Automatic
