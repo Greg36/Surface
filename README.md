@@ -1,19 +1,21 @@
 # Underscores
-Underscores is WordPress starter theme based on Automattic's [_s](https://github.com/Automattic/_s) upgraded with many features for development. It supports **Sass**, **ES6**, **HMR** (aka instant live reload) along with full suit of testing frameworks PHP and JS.
+Underscores is WordPress starter theme based on [Automattic's _s](https://github.com/Automattic/_s) upgraded with many features for development. It supports **Sass**, **ES6**, **HMR** (aka instant live reload) along with full suit of testing frameworks PHP and JS.
 
 Theme itself is still organized in "the WordPress way" and suitable for [WordPress.org](http://wordpress.org/) theme development.
 
-Webpack config is based on [Sage](https://github.com/roots/sage) starter theme.
+Webpack config is based on [Mythic](https://github.com/justintadlock/mythic) starter theme.
 
 ## Features
-* [Webpack](https://webpack.js.org/) as a build tool
+* [Webpack](https://webpack.js.org/) as a build tool using [Laravel Mix](https://laravel-mix.com/) wrapper
 * [BrowserSync](https://browsersync.io/) to develop with instant live reload
-* [Codeception](http://codeception.com/) PHP testing suit with [wp-browser](https://github.com/lucatume/wp-browser) extension
-* [Karma](http://karma-runner.github.io/1.0/index.html) JS unit test runner
+* [Codeception](http://codeception.com/) PHP testing suit with [wp-browser](https://wpbrowser.wptestkit.dev/)
+* [Karma](https://karma-runner.github.io/) JS unit test runner
 * [Mocha](https://mochajs.org/) JS unit test framework
 * [Chai](http://chaijs.com/) JS unit assertion library
 * [Sinon](http://sinonjs.org/) JS unit mocking library
 * [BackstopJS](https://garris.github.io/BackstopJS/) visual regression tester
+* [ESlint](https://eslint.org/) JS linting tool using WP [standard](https://www.npmjs.com/package/@wordpress/eslint-plugin)
+* [Stylelint](https://stylelint.io/) CSS linting tool using WP [standard](https://github.com/WordPress-Coding-Standards/stylelint-config-wordpress)
 
 #### BEM support
 
@@ -49,49 +51,51 @@ node setup.js
 
 ## Development
 
-To start developing install NPM dependencies and start watching files:
+To start developing install NPM dependencies and start watching files for changes:
 
 ```
 yarn install
-yarn start
+yarn run watch
 ```
 
-If you are using sub-directory to host this site i.e. `http://localhost/supertheme` change  `proxyUrl` in `config.json` file to just `http://localhost:3000` including the port number.
+#### Exporting
+When theme is ready to be exported for production run `yarn run build` - this will lint all files for style errors, build and minify them, generate POT translation file and copy **only** the required files to a new directory inside the theme.
+
 
 ## Testing
 
 All major test cases are covered:
 
-* **JS unit** tests - Chai, Sinon, Mocha testing stack running on Karma with Chrome and Firefox headless setup by default,
+* **JS unit** tests - Chai, Sinon and Mocha testing stack running on Karma with Chrome and Firefox headless setup by default,
 * **PHP unit** tests - Codeception unit suit powered by [PHPUnit](https://phpunit.de/),
 * **Integration** tests - Codeception wpunit suit that implements [WP Core automated suite](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/) of helpful fixtures and factories,
 * **Functional** tests - Codeception functional suit that emulates and process requests without need to run a web server,
-* **Acceptance** tests - Codeception acceptance suit tests with non-javascript browser (WebDriver solution can easily be configured),
+* **Acceptance** tests - Codeception acceptance suit tests using [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) (WebDriver solution can easily be configured to support JavaScript),
 * **Visual regression** tests - BackstopJS framework for automatic comparision of DOM elements screenshots.
 
 ### Codeception
 
-You can learn how to use Codeception for WordPress in [the official guide](http://codeception.com/for/wordpress).
+You can learn how to use Codeception for WordPress in [the official guide](https://codeception.com/for/wordpress).
 
 #### Setup
 
-To install Codeception with [wp-browser](https://github.com/lucatume/wp-browser) extension use [Composer](https://getcomposer.org/), the wp-browser package already contains Codeception so we install just one dependency:
+To setup Codeception use [Composer](https://getcomposer.org/):
 
 ```
 composer install
 ```
 
-Before using Codeception you need to update its settings. For default setup update variables in `tests/php/env.yml` file. For option `DB_Test_Name` create new empty database, it will be cleared between tests so **don't use** the one running WordPress.
+Codeception's main config file is located in `tests/php/.env.testing`. Testing suits require database access, **DO NOT** provide your current WordPress database name in this config as it is **erased** and rebuild between tests. It is proffered to have two separate databases setup in `TEST_SITE_DB_NAME` and `TEST_DB_NAME` respectively.
 
-Functional and acceptance tests requires WordPress [database dump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) file to run. Place it in `tmp/_data/dump.sql`.
+Functional and acceptance tests will use a [database dump](https://codeception.com/docs/modules/Db#sql-data-dump) file as a WordPress site data to be testet against. Place it in `tmp/_data/dump.sql`.
 
-Check [wp-browser documentation](https://github.com/lucatume/wp-browser#modules) for more in-depth info on setup and configuration.
+Check [wp-browser documentation](https://wpbrowser.wptestkit.dev/) for more in-depth info on setup and configuration.
 
 ### JavaScript testing
 
-Karma setup works without any configuration, only requirements are Firefox version 56 or above and Chrome version 59 or above.
+Karma setup works without any configuration, only requirements are Firefox version 56 or above and Chrome version 59 or above installed.
 
-To run Karma tests:
+To run tests:
 
 ```
 yarn run test
