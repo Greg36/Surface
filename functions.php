@@ -15,7 +15,7 @@
  * @link   https://laravel.com/docs/5.6/mix#versioning-and-cache-busting
  * @since  1.0.0
  * @access public
- * @param  string  $path  A relative path/file to append to the `dist` folder.
+ * @param  string $path A relative path/file to append to the `dist` folder.
  * @return string
  */
 function asset( $path ) {

@@ -12,7 +12,7 @@ function _s_dynamic_styles() {
 
 	$css = [
 		'body' => [
-			'background' => '#f00',
+			'background' => '#fff',
 		],
 	];
 
