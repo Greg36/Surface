@@ -30,7 +30,7 @@ To setup theme you will need to rename default strings across theme files to mat
 You can setup theme automatically by installing NPM dependencies and running this command in theme's directory:
 
 ```
-yarn install
+npm install
 node setup.js
 ```
 
@@ -54,12 +54,12 @@ node setup.js
 To start developing install NPM dependencies and start watching files for changes:
 
 ```
-yarn install
-yarn run watch
+npm install
+npm run watch
 ```
 
 #### Exporting
-When theme is ready to be exported for production run `yarn run build` - this will lint all files for style errors, build and minify them, generate POT translation file and copy **only** the required files to a new directory inside the theme.
+When theme is ready to be exported for production run `npm run build` - this will lint all files for style errors, build and minify them, generate POT translation file and copy **only** the required files to a new directory inside the theme.
 
 
 ## Testing
@@ -98,7 +98,7 @@ Karma setup works without any configuration, only requirements are Firefox versi
 To run tests:
 
 ```
-yarn run test
+npm run js:test
 ```
 
 ### Visual regression testing
@@ -108,11 +108,11 @@ BackstopJS takes screenshots of specified DOM elements in selected viewports con
 The workflow consists of running tests and approving the results as the future reference. To run test:
 
 ```
-yarn run visual:test
+npm run visual:test
 ```
 
 When test fail, we can approve its results as the new reference:
 
 ```
-yarn run visual:approve
+npm run visual:approve
 ```
