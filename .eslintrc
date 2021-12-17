@@ -17,7 +17,8 @@
 	"import/ignore": ["node_modules", "\\.(coffee|scss|css|less|hbs|svg|json)$"]
   },
   "parserOptions": {
-	"sourceType": "module"
+	"sourceType": "module",
+	"requireConfigFile": false
   },
   "rules": {
 	"linebreak-style": [0, "error", "windows"],
