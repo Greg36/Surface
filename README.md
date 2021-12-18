@@ -11,15 +11,12 @@ Webpack config is based on [Mythic](https://github.com/justintadlock/mythic) sta
 * [Codeception](http://codeception.com/) PHP testing suit with [wp-browser](https://wpbrowser.wptestkit.dev/)
 * [Karma](https://karma-runner.github.io/) JS unit test runner
 * [Mocha](https://mochajs.org/) JS unit test framework
-* [Chai](http://chaijs.com/) JS unit assertion library
+* [Chai](https://chaijs.github.io/) JS unit assertion library
 * [Sinon](http://sinonjs.org/) JS unit mocking library
 * [BackstopJS](https://garris.github.io/BackstopJS/) visual regression tester
 * [ESlint](https://eslint.org/) JS linting tool using WP [standard](https://www.npmjs.com/package/@wordpress/eslint-plugin)
-* [Stylelint](https://stylelint.io/) CSS linting tool using WP [standard](https://github.com/WordPress-Coding-Standards/stylelint-config-wordpress)
+* [Stylelint](https://stylelint.io/) CSS linting tool using WP [standard](https://www.npmjs.com/package/@wordpress/stylelint-config)
 
-#### BEM support
-
-In form of a separate branch I included a refactor of CSS with BEM syntax support and [partial](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) ITCSS styles organization.
 
 ## Setup
 Download `Surface` from Github and rename the main folder to your brand new theme name i.e. my-new-theme.
@@ -75,7 +72,7 @@ All major test cases are covered:
 
 ### Codeception
 
-You can learn how to use Codeception for WordPress in [the official guide](https://codeception.com/for/wordpress).
+You can learn how to use Codeception for WordPress in [the wp-browser documentation](https://wpbrowser.wptestkit.dev/).
 
 #### Setup
 
