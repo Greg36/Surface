@@ -7,33 +7,6 @@
  * @package _s
  */
 
-/**
- * Helper function for outputting an asset URL in the theme. This integrates
- * with Laravel Mix for handling cache busting. If used when you enqueue a script
- * or style, it'll append an ID to the filename.
- *
- * @link   https://laravel.com/docs/5.6/mix#versioning-and-cache-busting
- * @since  1.0.0
- * @access public
- * @param  string $path A relative path/file to append to the `dist` folder.
- * @return string
- */
-function asset( $path ) {
-
-	// Get the Laravel Mix manifest.
-	$manifest = get_theme_file_path( 'dist/mix-manifest.json' );
-	$manifest = file_exists( $manifest ) ? json_decode( file_get_contents( $manifest ), true ) : null;
-
-	// Make sure to trim any slashes from the front of the path.
-	$path = '/' . ltrim( $path, '/' );
-
-	if ( $manifest && isset( $manifest[ $path ] ) ) {
-		$path = $manifest[ $path ];
-	}
-
-	return get_theme_file_uri( 'dist' . $path );
-}
-
 if ( ! function_exists( '_s_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -157,16 +130,43 @@ function _s_widgets_init() {
 add_action( 'widgets_init', '_s_widgets_init' );
 
 /**
+ * Helper function for outputting an _s_asset URL in the theme. This integrates
+ * with Laravel Mix for handling cache busting. If used when you enqueue a script
+ * or style, it'll append an ID to the filename.
+ *
+ * @link   https://laravel.com/docs/8.x/mix#versioning-and-cache-busting
+ * @since  1.0.0
+ * @access public
+ * @param  string $path A relative path/file to append to the `dist` folder.
+ * @return string
+ */
+function _s_asset( $path ) {
+
+	// Get the Laravel Mix manifest.
+	$manifest = get_theme_file_path( 'dist/mix-manifest.json' );
+	$manifest = file_exists( $manifest ) ? json_decode( file_get_contents( $manifest ), true ) : null;
+
+	// Make sure to trim any slashes from the front of the path.
+	$path = '/' . ltrim( $path, '/' );
+
+	if ( $manifest && isset( $manifest[ $path ] ) ) {
+		$path = $manifest[ $path ];
+	}
+
+	return get_theme_file_uri( 'dist' . $path );
+}
+
+/**
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-	wp_enqueue_style( '_s-style', asset( 'css/style.css' ), null, null );
+	wp_enqueue_style( '_s-style', _s_asset( 'css/style.css' ), null, null );
 
 	// Include our dynamic styles.
 	$custom_css = _s_dynamic_styles();
 	wp_add_inline_style( '_s-style', $custom_css );
 
-	wp_enqueue_script( '_s-app', asset( 'js/main.js' ), null, null, true );
+	wp_enqueue_script( '_s-app', _s_asset( 'js/main.js' ), null, null, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
