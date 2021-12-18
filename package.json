@@ -18,17 +18,14 @@
     "prod": "npm run production",
     "production": "mix --production",
     "export": "cross-env export=1 NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-
     "lint": "npm run lint:styles && npm run lint:scripts && npm run lint:php",
     "lint:styles": "cross-env stylelint './assets/css/**/*.scss'",
     "lint:scripts": "cross-env eslint './assets/js/**/*.js'",
     "lint:php": "cross-env ./vendor/bin/phpcs . --runtime-set testVersion 5.8- -s",
-
     "js:test": "karma start assets/build/karma.conf.js",
     "i18n": "npm run i18n:textdomain && npm run i18n:pot",
     "i18n:textdomain": "npx wpi18n addtextdomain --exclude=vendor,node_modules",
     "i18n:pot": "npx wpi18n --domain-path=assets/languages makepot",
-
     "visual:test": "backstop --configPath=assets/build/backstop.json test",
     "visual:approve": "backstop --configPath=assets/build/backstop.json approve",
     "visual:clear": "rimraf tmp"
@@ -71,5 +68,8 @@
     "sass-loader": "12.4.0",
     "sinon": "^12.0.1",
     "vue-template-compiler": "^2.6.14"
+  },
+  "dependencies": {
+    "vanilla-lazyload": "^17.5.0"
   }
 }
